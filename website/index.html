@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+  <head>
+    <title>Our energy challenge</title>
+    <meta property='og:title' content='Our energy challenge'/>
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='https://ourenergychallenge.herokuapp.com/index.html' />
+    <meta property="og:image" content="img/map.png" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+  </head>
+  <body>
+    
+    <header>
+	    <h1>Our energy challenge: Revisiting assumptions about climate change</h1>
+	    <h4>By <a href='https://www.linkedin.com/in/nikos-tsafos-b7025212/' target= '_blank'>Nikos Tsafos</a></h4>
+    </header>
+
+    <p>Why is the world so slow to fight climate change?</p>
+
+    <p>Lots of reasons, of course.</p>
+
+    <p>But let's focus on one: a major assumption we make about energy, climate and the economy.</p>
+
+    <p>That you cannot grow the economy while reducing CO2 emissions.</p>
+
+    <!--<p>But let's focus on three.</p>
+
+    <p>Three assumptions we make about energy, climate and the economy.</p>
+
+    <p>First: that you cannot grow the economy while reducing CO2 emissions.</p>
+
+    <p>Second: that energy systems are big and change comes only slowly.</p>
+
+    <p>Third: that expensive energy will hurt the economy and jobs.</p>
+
+    <p>It's hard to be optimistic about fighting climate change if you believe these things.</p> 
+
+    <p>Are those assumptions true?</p>-->
+
+    <p>It's hard to be optimistic about fighting climate change if you believe this.</p>
+
+    <p>Is this assumption true?</p>
+
+    <p>What if it's not?</p>
+
+    <!-- NEW SECTION -->
+    <h2>Can we grow the economy and reduce CO<sub>2</sub> emissions?</h2>
+
+    <p>Richer countries use more energy, and thus, emit more CO<sub>2</sub> emissions.</p>
+
+    <p>But the relationship is neither steady nor linear.</p>
+
+    <p>Countries at similar income levels have vastly different CO<sub>2</sub> footprints.</p>
+
+    <p>Switzerland and Qatar. Similar incomes (~$75k per capita), but Qatar emits almost eight times more CO<sub>2</sub> per capita than Switzerland.</p>
+
+    <p>Portugal and Bahrain. Similar incomes (~$22k per capita), but Bahrain emits almost four times more CO<sub>2</sub> per capita than Portugal.</p>
+
+    <p>Panama and Curacao. Similar incomes (~$10-12k per capita), but Curacao emits eleven times more CO<sub>2</sub> per capita than Panama.</p>
+
+    <p>Or: Switzerland and Portugal. Switzerland emits 12% more CO<sub>2</sub>, but its income is 3.5x higher.</p>
+
+    <p>Trinidad and Tobago and Luxembourg. Similar CO<sub>2</sub> emissions (~16 tons per capita) but incomes are 6.4x higher in Luxembourg.</p>
+
+    <p>In short: Income per se is not a good predictor of CO2 emissions.</p>
+
+    <div class = 'scatterOne' id = 'scatterGDPCAPITACO2CAPITA'>
+        <script src='js/scatterGDPCAPITACO2CAPITA.js'></script> 
+    </div>
+    <div class = 'graphLegend'>
+        <svg width = '940', height = '25'>
+            <rect width = '15', height = '15', x = '160' y = '10' fill = '#4575b4'></rect>
+            <text x = 180, y = 22>Asia</text>
+            <rect width = '15', height = '15', x = '220' y = '10' fill = '#fc8d59'></rect>
+            <text x = 240, y = 22>Africa</text>
+            <rect width = '15', height = '15', x = '285' y = '10' fill = '#e0f3f8'></rect>
+            <text x = 305, y = 22>OECD</text>
+            <rect width = '15', height = '15', x = '350' y = '10' fill = '#91bfdb'></rect>
+            <text x = 370, y = 22>Middle East</text>
+            <rect width = '15', height = '15', x = '450' y = '10' fill = '#fee090'></rect>
+            <text x = 470, y = 22>Non-OECD Americas</text>
+            <rect width = '15', height = '15', x = '600' y = '10' fill = '#d73027'></rect>
+            <text x = 620, y = 22>Non-OECD Europe and Eurasia</text>
+        </svg>
+    </div>
+
+    <!-- NEW SECTION -->
+    <h3>Incomes and CO<sub>2</sub> emissions: Digging deeper</h3>
+
+    <p>Why not?</p>
+
+    <p>First, countries use different amounts of energy.</p>
+
+    <p>Their economies may be different. More industry or more services.</p>
+
+    <p>Their climate may be different. More heating or more AC.</p>
+
+    <p>Their energy prices may be different. Expensive or cheap. Subsidized or heavily taxed.</p>
+
+    <p>Their capital may be different. Older buildings. Newer machines.</p>
+
+    <p>Their policies may be different. Stricter regulations. Tighter controls.</p>
+
+    <p>These differences are obvious in energy consumption patterns.</p>
+
+    <p>Malta and Bahrain. Similar incomes (~$20k per capita), but Bahrain consumes 5x more energy per capita as Malta.</p>
+
+    <p>Trinidad and Tobago and Uruguay. Similar incomes ($14-16K per capita), but Trinidad consumes 9x more energy per capita than Uruguay.</p> 
+
+    <p>Once again, income is a poor predictor of energy consumption.</p>
+
+    <div class = 'scatterTwo' id = 'scatterGDPENERGYCO2CAPITA'>
+        <script src='js/scatterGDPENERGYCO2CAPITA.js'></script> 
+    </div>
+    <div class = 'graphLegend'>
+        <svg width = '940', height = '25'>
+            <rect width = '15', height = '15', x = '160' y = '10' fill = '#4575b4'></rect>
+            <text x = 180, y = 22>Asia</text>
+            <rect width = '15', height = '15', x = '220' y = '10' fill = '#fc8d59'></rect>
+            <text x = 240, y = 22>Africa</text>
+            <rect width = '15', height = '15', x = '285' y = '10' fill = '#e0f3f8'></rect>
+            <text x = 305, y = 22>OECD</text>
+            <rect width = '15', height = '15', x = '350' y = '10' fill = '#91bfdb'></rect>
+            <text x = 370, y = 22>Middle East</text>
+            <rect width = '15', height = '15', x = '450' y = '10' fill = '#fee090'></rect>
+            <text x = 470, y = 22>Non-OECD Americas</text>
+            <rect width = '15', height = '15', x = '600' y = '10' fill = '#d73027'></rect>
+            <text x = 620, y = 22>Non-OECD Europe and Eurasia</text>
+        </svg>
+    </div>
+
+    <p>Second, countries generate their energy in different ways.</p> 
+
+    <p>More fossil fuels such as coal, oil and gas mean more CO<sub>2</sub> emissions than hydro, nuclear power, wind or solar.</p>
+
+    <p>Qatar and Iceland have similar energy use (20 toe vs 18 toe per capita), but CO<sub>2</sub> emissions are 5x higher in Qatar.</p>
+
+    <p>Qatar uses oil and gas; Iceland uses hydro and geothermal energy.</p>
+
+    <p>Australia consumes slightly (7%) more energy per capita than Sweden, but its emissions are over 4x higher.</p>
+
+    <p>Germany's emissions are 2x higher than France's, even though they consume similar amounts of energy.</p>
+
+    <p>Not even energy consumption, on its own, predicts CO<sub>2</sub> emissions.</p>
+
+    <p>Countries with similar incomes can have vastly different CO<sub>2</sub> footprints.</p>
+
+    <!-- NEW SECTION -->
+    <h3>Incomes and CO<sub>2</sub> emissions: Trends over time</h3>
+
+    <p>So far, we have looked only at 2014 data.</p>
+
+    <p>Maybe countries end up at different places.</p>
+
+    <p>But can an economy grow without more energy? Or more CO<sub>2</sub> emissions?</p>
+
+    <p>The evidence is clear: yes.</p>
+
+    <p>But it is not a given.</p>
+
+    <p>There are so many different patterns.</p>
+
+    <p>Pattern #1 (Turkey): GDP, energy consumption and CO<sub>2</sub> emissions are closely linked. Not perfectly overlapping, but close.</p> 
+
+    <p>Pattern #2 (Australia): Income at some point delinks from energy use and CO<sub>2</sub> emissions.</p>
+
+    <p>Pattern #3 (Russia): GDP is growing but energy use and emissions are not because there are still major efficiency gains to be had.</p> 
+
+    <p>Pattern #4 (Germany): CO<sub>2</sub> emissions falling faster than energy use; usually because countries relied more on gas or nuclear power.</p>
+
+    <p>Pattern #5 (United Kingdom): No clear link between GDP, energy and CO<sub>2</sub> emissions: incomes grow faster than energy or emissions</p>
+
+    <p>Pattern #6 (China): Income, energy use and emissions grow, but not in tandem: incomes are up 10x in China (vs 1990), energy use 3x, and CO<sub>2</sub> emissions 4x.</p>
+
+    <p>Pattern #7 (Iran): Energy use and CO<sub>2</sub> emissions growing faster than incomes; energy-dependent growth models that do not deliver commensurate growth.</p>
+
+    <p>Pattern #8 (Bangladesh): CO<sub>2</sub> emissions growing faster than energy use or incomes, Usually as countries replace traditonal (e.g. biomass) for oil, gas, and coal, which emit more CO<sub>2</sub>.</p>
+
+    <div class = 'lineChart' id = 'countrySet'>
+        <script src='js/lineChartGrid.js'> </script>
+        <script>plotCountrySingle('#countrySet', 'Turkey')
+                plotCountrySingle('#countrySet', 'Australia')
+                plotCountrySingle('#countrySet', 'Russia')
+                plotCountrySingle('#countrySet', 'Germany')
+                plotCountrySingle('#countrySet', 'United Kingdom')
+                plotCountrySingle('#countrySet', 'China')
+                plotCountrySingle('#countrySet', 'Iran')
+                plotCountrySingle('#countrySet', 'Bangladesh')
+        </script>
+    </div>
+    <div class = 'graphLegend'>
+        <svg width = '940', height = '25'>
+            <rect width = '15', height = '15', x = '240' y = '10' fill = '#e41a1c'></rect>
+            <text x = 260, y = 22>Gross domestic product</text>
+            <rect width = '15', height = '15', x = '415' y = '10' fill = '#4daf4a'></rect>
+            <text x = 435, y = 22>Energy consumption</text>
+            <rect width = '15', height = '15', x = '570' y = '10' fill = '#377eb8'></rect>
+            <text x = 590, y = 22>CO2 emissions</text>
+        </svg>
+    </div>
+
+    <p>In sum: there is no reason to think that economic growth equals more energy consumption.</p>
+
+    <p>Or that more energy consumption must equal more CO<sub>2</sub> emissions.</p>
+
+    <p>We have so many different trajectories around the world and throughout history.</p>
+
+    <p>(The <a href='appendixone.html' target= '_blank'>appendix</a> shows GDP, energy consumption and CO<sub>2</sub> emissions for 133 countries).</p>
+
+	<!-- NEW SECTION -->
+    <h3>The big picture: Living standards up; emissions less so</h3> 
+
+    <p>Let's step back and look at the big picture.</p> 
+
+    <p>Most countries continue to grow: in 101 countries, real GDP per capita was either at its highest level or just below its peak (peak occurred in 2008-2013).</p> 
+
+    <p>These are the countries shown in blue.</p>
+
+    <p>There are also a few countries where per capita GDP peaked before 1990.</p>
+
+    <p>That's because of war, revolution or economic stagnation, often from natural resources. </p>
+
+    <p>Finally, there are countries where per capita incomes have stagnated, peaking after 1990 but before 2007 (21 countries), many of them in Europe.</p> 
+
+    <div class = 'graphic' id = 'mapGDPCAPITA'>
+        <script src='js/mapGDPCAPITA.js'></script> 
+    </div>
+
+    <p>Per capita CO<sub>2</sub> emissions show a dramatically different pattern.</p>
+
+    <p>In 30 countries, they peaked before 1990. This is in Europe, North America and parts of Africa (largely due to war).</p>
+
+    <p>In the Former Soviet Union, energy consumption and CO<sub>2</sub> emissions have been declining since 1990, often at rapid rates.</p>
+
+    <p>Per capita emissions are rising mostly in Asia and Latin America, as well as parts of Africa (36 countries in total). </p>
+
+    <p>In all other places, emissions peaked either recently (25 countries in 2008-2013), or a long time ago.</p> 
+
+    <div class = 'graphic' id = 'mapCO2CAPITA'>
+            <script src='js/mapCO2CAPITA.js'></script> 
+    </div>
+
+    <p>What does all this mean?</p>
+
+    <p>We know that the link between incomes and CO<sub>2</sub> emissions is far from linear.</p> 
+
+    <p>We have so many countries that have grown without using more energy and/or emitting more CO<sub>2</sub>.</p>
+
+    <p>Not all countries are equal, of course: the growth in China and India can overwhelm what happens in many other countries.</p> 
+
+    <p>Yet the broad picture is clear: so many countries where GDP per capita is growing while CO<sub>2</sub> emissions are not.</p>
+
+    <h3>Notes</h3> 
+
+    <p>GDP is measured in constant 2005 dollars ($2005), energy consumption in tons of oil equivalent (toe), and CO<sub>2</sub> emissions are from fuel combustion only and are measured in tons of CO<sub>2</sub> equivalent. All data come from the International Energy Agency's <a href='http://www.iea.org/bookshop/729-CO2_Emissions_from_Fuel_Combustion' target = '_blank'>CO<sub>2</sub> Emissions from Fuel Combustion (2016 Edition)</a>. For details on geographical coverage, please see <a href = 'appendixtwo.html' target = '_blank'>appendix</a>.</p>
+
+    <h4><a href="https://twitter.com/ntsafos" class="twitter-follow-button" data-show-count="false">Follow @ntsafos</a>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></h4>
+  <body>
