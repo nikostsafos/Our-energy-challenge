@@ -1,8 +1,8 @@
-Our energy challenge: Revisiting assumptions about climate change
+# Our energy challenge: Revisiting assumptions about climate change
 
 Web version: https://nikostsafos.github.io/our-energy-challenge/
 
-# What's in this repository?
+## What's in this repository?
 
 Code to render the finished website.
 - css: css styling for the main page (style.css) and the appendix (appendix.css).
