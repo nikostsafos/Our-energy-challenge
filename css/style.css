@@ -13,17 +13,16 @@ body {
 
 header {
   /*z-index:-9999;*/
-  /*background-image: url('../img/earth.jpg');*/
-  /*background-color: cover;*/
-  /*background-position: center;*/
-  /*opacity: .9;*/
-  /*margin-bottom: 10px;*/
-  /*background-repeat: no-repeat;*/
+/*   background-image: url('../img/earth.jpg'); */
+/*   background-color: cover; */
+/*   background-position: center; */
+/*   opacity: .9; */
+/*   margin-bottom: 10px; */
+/*   background-repeat: no-repeat; */
   background-color: #000;
   height: 100vh;
-  
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   /*color: #e41a1c;*/
@@ -31,10 +30,11 @@ header {
 }
 
 header li{
-  display: flex;
+  text-align: right;
   flex-direction: column;
   justify-content: center;
-  /*align-items: center;*/
+  align-items: center;
+  margin-left: 0px;
   margin-bottom: 10px;
   max-width: 940px;
   list-style: none;
@@ -234,14 +234,23 @@ hr {
 .tab-panel p { margin: 20px;}
 
 .tab-list {
-  height: 20px;
-  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.tab-list li{
+  display: inline-table;
+  text-align: center;
   list-style: none;
-  display: inline;
+  border-bottom: 3px;
   color: #000;
 }
 
 .tab-list a {
  color: #000;
  text-decoration: none; 
+ padding: 0px 15px 0px;
+ display: block;
+ list-style: none;
 }

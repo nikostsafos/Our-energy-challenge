@@ -10,7 +10,7 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script src = 'https://code.jquery.com/jquery-3.2.0.min.js'></script>
-    <script src='js/menunav.js'></script>
+    <!-- <script src='js/menunav.js'></script> -->
   </head>
   <body>
   
@@ -21,8 +21,9 @@
         <li><a href = '#Transitions'>energy transitions</a></li>
         <li><a href = '#EnergyCosts'>energy costs</a></li>
         <li><a href = '#Conclusion'>conclusion</a></li>
+        <li><a href = '#Appendix'>appendix</a></li>
         <li><a href = '#Notes'>notes</a></li>
-        <<li><a href = '#Appendix'>appendix</a></li>
+        
     </ul>
   </nav>
 
@@ -33,8 +34,9 @@
         <li><a href = '#GDPTPESCO2'>Can we grow the economy and reduce CO2 emissions?</a></li>
         <li><a href = '#Transitions'>Can we change our energy systems quickly?</a></li>
         <li><a href = '#EnergyCosts'>Can we afford more expensive energy?</a></li>
-        <li><a href = '#Notes'>Notes</a></li>
+        <li><a href = '#Conclusion'>Conclusion</a></li>
         <li><a href = '#Appendix'>Appendix</a></li>
+        <li><a href = '#Notes'>Notes</a></li>
     </ul>
   </header>
 
@@ -311,7 +313,7 @@
     <p>Not all countries are equal, of course: the growth in China and India can overwhelm what happens in many other countries.</p> 
 
     <a name = 'Transitions'></a>
-    <p>Yet the broad picture is clear: so many countries where GDP per capita is growing while CO<sub>2</sub> emissions are not.</p>
+    <p>Yet the broad picture is clear: so many countries where GDP per capita is growing while emissions are not.</p>
 
     <!-- NEW SECTION -->
     <hr><h2>Can we change our energy systems quickly?</h2><hr>
@@ -541,6 +543,24 @@
 
     <p>The whole "post-war, cheap energy" story looks really questionable when one examines the data closely.</p>
 
+    <div class = 'pceone' id = 'pce'>
+        <p class = 'graphtitle' align="center">US: Personal consumption expenditures (as % of total)</p>
+        <script src='js/lineChartPCE.js'></script> 
+    </div>
+    <div class = 'graphLegend'>
+        <svg width = '940', height = '25'>
+            <rect width = '15', height = '15', x = '340' y = '10' fill = '#91bfdb'></rect>
+            <text x = 360, y = 22>Total</text>
+            <rect width = '15', height = '15', x = '400' y = '10' fill = '#e41a1c'></rect>
+            <text x = 420, y = 22>Gasoline</text>
+            <rect width = '15', height = '15', x = '480' y = '10' fill = '#4daf4a'></rect>
+            <text x = 500, y = 22>Electricity</text>
+            <rect width = '15', height = '15', x = '570' y = '10' fill = '#377eb8'></rect>
+            <text x = 590, y = 22>Natural Gas</text>
+        </svg>
+        <p class = 'graphfootnote' align="center">Source: Source: Bureau of Economic Analysis (Table 2.4.5)</p>
+    </div>
+
     <p>To put energy spending in context, consider the following.</p> 
 
     <p>In 2015, households spent as much on gambling and tobacco as they did to power, heat and cool their homes ($235 billion vs. $246 billion).</p>
@@ -679,34 +699,8 @@
 
     <p>Dispel these, and we can forge a new consensus to save the planet.</p>
 
-    <a name = 'Notes'></a>
-    <p>These long-term gains have helped mute the impact of energy costs on businesses.</p>
-
-    <!-- NEW SECTION -->    
-    <hr><h2>Notes</h2><hr>
-
-    <p>The data on economics, total energy consumption and CO<sub>2</sub> emissions come from the International Energy Agency's <a href='http://www.iea.org/bookshop/729-CO2_Emissions_from_Fuel_Combustion' target = '_blank'>CO<sub>2</sub> Emissions from Fuel Combustion (2016 Edition)</a>.</p>
-
-    <p>GDP is measured in constant 2005 dollars ($2005), energy consumption in tons of oil equivalent (toe), and CO<sub>2</sub> emissions are from fuel combustion only and are measured in tons of CO<sub>2</sub> equivalent.</p>
-
-    <p>The data on energy transitions come from the <a href = 'http://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html' target='_blank'>BP Statistical Review of World Energy</a> (June 2016). 
-
-    <p>To access the code behind this website: <a href = 'https://github.com/nikostsafos/our-energy-challenge' target='_blank'>https://github.com/nikostsafos/our-energy-challenge</a>.</p>
-
-    <p>OECD: Australia, Austria, Belgium, Canada, Chile, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Israel, Italy, Japan, Korea, Luxembourg, Mexico, Netherlands, New Zealand, Norway, Poland, Portugal, Slovak Republic, Slovenia, Spain, Sweden, Switzerland, Turkey, United Kingdom and United States.</p>
-
-    <p>Middle East: Bahrain, Islamic Republic of Iran, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Saudi Arabia, Syrian Arab Republic, United Arab Emirates and Yemen.</p>
-
-    <p>Non-OECD Europe and Eurasia: Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, Former Yugoslav Republic of Macedonia, Georgia, Gibraltar, Kazakhstan, Kosovo, Kyrgyzstan, Latvia, Lithuania, Malta, Republic of Moldova, Montenegro, Romania, Russian Federation, Serbia, Tajikistan, Turkmenistan, Ukraine and Uzbekistan.</p>
-
-    <p>Asia: Bangladesh, Brunei Darussalam, Cambodia, People’s Republic of China, Hong Kong (China), India, Indonesia, Democratic People’s Republic of Korea, Malaysia, Mongolia, Myanmar, Nepal, Pakistan, Philippines, Singapore, Sri Lanka, Chinese Taipei, Thailand, Viet Nam and Other Asia.</p>
-
-    <p>Non-OECD Americas: Argentina, Bolivia, Brazil, Colombia, Costa Rica, Cuba, Curaçao, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Peru, Suriname, Trinidad and Tobago, Uruguay, Venezuela and Other Non-OECD Americas.</p>
-
-    <p>Africa: Algeria, Angola, Benin, Botswana, Cameroon, Congo, Côte d’Ivoire, Democratic Republic of Congo, Egypt, Eritrea, Ethiopia, Gabon, Ghana, Kenya, Libya, Mauritius, Morocco, Mozambique, Namibia, Niger, Nigeria, Senegal, South Africa, South Sudan, Sudan, Tanzania, Togo, Tunisia, Zambia, Zimbabwe and Other Africa.</p>
-
     <a name = 'Appendix'></a>
-    <p>Regions from <a href='http://www.iea.org/publications/freepublications/publication/key-world-energy-statistics.html' target = '_blank'>IEA, Key World Energy Statistics 2016</a>.</p> 
+    <p>These long-term gains have helped mute the impact of energy costs on businesses.</p>
 
     <hr><h2>Appendix</h2><hr>
 
@@ -820,13 +814,41 @@
                     <rect width = '15', height = '15', x = '600' y = '10' fill = '#fee090'></rect>
                     <text x = 620, y = 22>Renewables</text>
                 </svg>
+                
                 <p align="center">Source: BP Statistical Review of World Energy (June 2016)</p>
             </div>
         </div>
+
+    <a name = 'Notes'></a>
+    <hr><h2>Notes</h2><hr>
+
+    <p>The data on economics, total energy consumption and CO<sub>2</sub> emissions come from the International Energy Agency's <a href='http://www.iea.org/bookshop/729-CO2_Emissions_from_Fuel_Combustion' target = '_blank'>CO<sub>2</sub> Emissions from Fuel Combustion (2016 Edition)</a>.</p>
+
+    <p>GDP is measured in constant 2005 dollars ($2005), energy consumption in tons of oil equivalent (toe), and CO<sub>2</sub> emissions are from fuel combustion only and are measured in tons of CO<sub>2</sub> equivalent.</p>
+
+    <p>The data on energy transitions come from the <a href = 'http://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html' target='_blank'>BP Statistical Review of World Energy</a> (June 2016). 
+
+    <p>To access the code behind this website: <a href = 'https://github.com/nikostsafos/our-energy-challenge' target='_blank'>https://github.com/nikostsafos/our-energy-challenge</a>.</p>
+
+    <p>OECD: Australia, Austria, Belgium, Canada, Chile, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Israel, Italy, Japan, Korea, Luxembourg, Mexico, Netherlands, New Zealand, Norway, Poland, Portugal, Slovak Republic, Slovenia, Spain, Sweden, Switzerland, Turkey, United Kingdom and United States.</p>
+
+    <p>Middle East: Bahrain, Islamic Republic of Iran, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Saudi Arabia, Syrian Arab Republic, United Arab Emirates and Yemen.</p>
+
+    <p>Non-OECD Europe and Eurasia: Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, Former Yugoslav Republic of Macedonia, Georgia, Gibraltar, Kazakhstan, Kosovo, Kyrgyzstan, Latvia, Lithuania, Malta, Republic of Moldova, Montenegro, Romania, Russian Federation, Serbia, Tajikistan, Turkmenistan, Ukraine and Uzbekistan.</p>
+
+    <p>Asia: Bangladesh, Brunei Darussalam, Cambodia, People’s Republic of China, Hong Kong (China), India, Indonesia, Democratic People’s Republic of Korea, Malaysia, Mongolia, Myanmar, Nepal, Pakistan, Philippines, Singapore, Sri Lanka, Chinese Taipei, Thailand, Viet Nam and Other Asia.</p>
+
+    <p>Non-OECD Americas: Argentina, Bolivia, Brazil, Colombia, Costa Rica, Cuba, Curaçao, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Peru, Suriname, Trinidad and Tobago, Uruguay, Venezuela and Other Non-OECD Americas.</p>
+
+    <p>Africa: Algeria, Angola, Benin, Botswana, Cameroon, Congo, Côte d’Ivoire, Democratic Republic of Congo, Egypt, Eritrea, Ethiopia, Gabon, Ghana, Kenya, Libya, Mauritius, Morocco, Mozambique, Namibia, Niger, Nigeria, Senegal, South Africa, South Sudan, Sudan, Tanzania, Togo, Tunisia, Zambia, Zimbabwe and Other Africa.</p>
+
+    <p>Regions from <a href='http://www.iea.org/publications/freepublications/publication/key-world-energy-statistics.html' target = '_blank'>IEA, Key World Energy Statistics 2016</a>.</p> 
+
     <script src = 'https://code.jquery.com/jquery-3.2.0.min.js'></script>
     <script src='js/tabs.js'> </script>
     <script src='js/lineChartFuelMixSelect.js'> </script>
     <script src='js/lineChartGDPCO2TPESSelect.js'> </script>
+
     </div>
 
     <hr>
