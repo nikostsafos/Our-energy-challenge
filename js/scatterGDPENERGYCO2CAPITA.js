@@ -188,7 +188,7 @@ var svgENERGYCAPITACO2CAPITA = d3.select('#scatterGDPENERGYCO2CAPITA')
 			.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
 // Read in data and start function that creates the chart (within the data read function)
-d3.csv('data/data2014all.csv', function(error, data) {
+d3.csv('data/data2014.csv', function(error, data) {
 	data.forEach(function(d) {
 		d.Country = d.Country;
 		d.Region = d.Region;

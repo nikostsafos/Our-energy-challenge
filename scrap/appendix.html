@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+  <head>
+    <title>Our energy challenge</title>
+    <meta property='og:title' content='Our energy challenge'/>
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content='https://nikostsafos.github.io/our-energy-challenge/' />
+    <meta property="og:image" content="img/map.png" />
+    <link rel="stylesheet" type="text/css" href="css/appendix.css"/>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+  </head>
+
+    <div class = 'header'>
+        <h1>Our energy challenge: Revisiting assumptions about climate change (appendix)</h1>
+        <h4>By Nikos Tsafos</h4>
+        <!-- <h4>By <a href='https://www.linkedin.com/in/nikos-tsafos-b7025212/' target= '_blank'>Nikos Tsafos</a></h4> -->
+    </div>
+
+    <ul class="tab-list">
+        <li class="active"><a class="tab-control" href="#tab-1"><h3>GDP, Energy, CO2 (by country)</h3></a></li>
+        <li><a class="tab-control" href="#tab-2"><h3>Fuel mix (by country)</h3></a></li>
+    </ul>
+
+        <div class = 'menu' align = 'center'>
+        <select id="countrySelect" name="countrySelect">
+                <option value="Algeria">Algeria</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Australia">Australia</option>
+                <option value="Austria">Austria</option>
+                <option value="Azerbaijan">Azerbaijan</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="Belarus">Belarus</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Bulgaria">Bulgaria</option>
+                <option value="Canada">Canada</option>
+                <option value="Chile">Chile</option>
+                <option value="China">China</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Czech Republic">Czech Republic</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="Egypt">Egypt</option>
+                <option value="Finland">Finland</option>
+                <option value="France">France</option>
+                <option value="Germany">Germany</option>
+                <option value="Greece">Greece</option>
+                <option value="Hong Kong">Hong Kong</option>
+                <option value="Hungary">Hungary</option>
+                <option value="India">India</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Iran">Iran</option>
+                <option value="Ireland">Ireland</option>
+                <option value="Israel">Israel</option>
+                <option value="Italy">Italy</option>
+                <option value="Japan">Japan</option>
+                <option value="Kazakhstan">Kazakhstan</option>
+                <option value="Kuwait">Kuwait</option>
+                <option value="Lithuania">Lithuania</option>
+                <option value="Malaysia">Malaysia</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Netherlands">Netherlands</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Norway">Norway</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Peru">Peru</option>
+                <option value="Philippines">Philippines</option>
+                <option value="Poland">Poland</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Qatar">Qatar</option>
+                <option value="Romania">Romania</option>
+                <option value="Russia">Russia</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Slovakia">Slovakia</option>
+                <option value="South Africa">South Africa</option>
+                <option value="South Korea">South Korea</option>
+                <option value="Spain">Spain</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Taiwan">Taiwan</option>
+                <option value="Thailand">Thailand</option>
+                <option value="Trinidad">Trinidad</option>
+                <option value="Turkey">Turkey</option>
+                <option value="Turkmenistan">Turkmenistan</option>
+                <option value="UAE">UAE</option>
+                <option value="Ukraine">Ukraine</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="United States">United States</option>
+                <option value="Uzbekistan">Uzbekistan</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Vietnam">Vietnam</option>
+            </select>
+            </div>
+
+        <div class="tab-panel active" id="tab-1">
+        <p align="center">GDP, energy consumption, CO<sub>2</sub> emissions</p>
+        <div id = 'gdpTPESCO2'></div>
+            <div class = 'graphLegend'>
+                <svg width = '940', height = '25'>
+                    <rect width = '15', height = '15', x = '240' y = '10' fill = '#e41a1c'></rect>
+                    <text x = 260, y = 22>Gross domestic product</text>
+                    <rect width = '15', height = '15', x = '415' y = '10' fill = '#4daf4a'></rect>
+                    <text x = 435, y = 22>Energy consumption</text>
+                    <rect width = '15', height = '15', x = '570' y = '10' fill = '#377eb8'></rect>
+                    <text x = 590, y = 22>CO2 emissions</text>
+                </svg>
+                <p align="center">Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
+             </div>
+        </div>
+        
+        <div class="tab-panel" id="tab-2">
+        <p align="center">Energy consumption by fuel</p>
+        <div id = 'fuelMix'></div>
+             <div class = 'graphLegend'>
+                <svg width = '940', height = '25'>
+                    <rect width = '15', height = '15', x = '290' y = '10' fill = '#636363'></rect>
+                    <text x = 310, y = 22>Coal</text>
+                    <rect width = '15', height = '15', x = '350' y = '10' fill = '#2ca25f'></rect>
+                    <text x = 370, y = 22>Oil</text>
+                    <rect width = '15', height = '15', x = '405' y = '10' fill = '#d73027'></rect>
+                    <text x = 425, y = 22>Gas</text>
+                    <rect width = '15', height = '15', x = '460' y = '10' fill = '#fc8d59'></rect>
+                    <text x = 480, y = 22>Nuclear</text>
+                    <rect width = '15', height = '15', x = '535' y = '10' fill = '#91bfdb'></rect>
+                    <text x = 555, y = 22>Hydro</text>
+                    <rect width = '15', height = '15', x = '600' y = '10' fill = '#fee090'></rect>
+                    <text x = 620, y = 22>Renewables</text>
+                </svg>
+                <p align="center">Source: BP Statistical Review of World Energy (June 2016)</p>
+            </div>
+        </div>
+
+
+        <div class="tab-panel" id="tab-2">
+            <p><strong>ELDERBERRY:</strong> sugar, glucose syrup, elderberry concentrate, gelatine, natural color, cornflour, confectioner's sugar <strong>ROSE PETAL:</strong> sugar, glucose syrup, rose water, gelatine, natural color, cornflour, sugared rose petals, confectioner's sugar <strong>CHRYSANTHEMUM:</strong> sugar, glucose syrup, natural chrysanthemum extract, gelatine, natural color, cornflour, confectioner's sugar</p>
+        </div>
+
+        <div class="tab-panel" id="tab-3">
+            <p>Free postage and packaging on all orders! Due to the perishable nature of our product, we regret that we are unable to ship items internationally at this time. If you would like to find out when Monsieur Pigeon is coming to your country, please sign up for the mailing list.</p>
+        </div>
+
+    
+    
+    
+    <!-- <script src='js/jquery-1.11.0.min.js'></script> -->
+    <script src = 'https://code.jquery.com/jquery-3.2.0.min.js'></script>
+    <script src='js/tabs.js'> </script>
+    <script src='js/lineChartFuelMixSelect.js'> </script>
+    <script src='js/lineChartGDPCO2TPESSelect.js'> </script>
+    </body>

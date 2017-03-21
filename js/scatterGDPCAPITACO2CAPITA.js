@@ -12,23 +12,6 @@ var y = d3.scaleLinear().range([height, 0]);
 // b function map adjusts radius for dots
 var b = d3.scaleLinear().range([0,20]);
 
-// xAxis function gets called to draw x axis
-// var xAxis = d3.svg.axis()
-// 				  .scale(x)
-// 				  .orient('bottom');
-
-// yAxis function gets called to draw y axis
-// var yAxis = d3.svg.axis()
-// 				  .scale(y)
-// 				  .orient('left');
-
-//V4 syntax 
-// var xAxis = d3.select(".axis")
-//     		  .call(d3.axisBottom(xscatter));
-
-// var yAxis = d3.select(".axis")
-//     		  .call(d3.axisLeft(yscatter));
-
 // color function will map regions to colors 
 var color = d3.scaleOrdinal()
     			    .domain(['Non-OECD Europe and Eurasia',
@@ -138,26 +121,3 @@ d3.csv('data/data2014.csv', function(error, data) {
 	   .text('GDP vs. CO2 emissions per capita (2014)');
 });
 })();
-
-	// Draw the legend; the 25 is for the spacing between the items in the legend 
-	// var legend = svgGDPCAPITACO2CAPITA.selectAll('.legend')
-	// 				.data(color.domain())
-	// 				.enter().append('g')
-	// 				.attr('class', 'legend')
-	// 				.attr('transform', function(d, i) { return 'translate(0,' + i * 25 + ')'; });
-
-	// 	// rect: box for each of the legend items 
-	// 	legend.append('rect')
-	// 		  .attr('x', width - 18)
-	// 		  .attr('width', 18)
-	// 		  .attr('height', 18)
-	// 		  .style('fill', color);
-
-	// 	// text for legend 
-	// 	legend.append('text')
-	// 		  .attr('x', width - 24)
-	// 		  .attr('y', 9)
-	// 		  .attr('dy', '.35em')
-	// 		  .style('text-anchor', 'end')
-	// 		  .text(function(d) { return d; });
-		

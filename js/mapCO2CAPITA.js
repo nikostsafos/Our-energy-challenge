@@ -59,33 +59,33 @@
            .remove();
 
       // Draw the legend; the 25 is for the spacing between the items in the legend 
-      var legend = svg.selectAll('.legend')
-                      .data(color.domain().filter(function(d, i) { return (i < 5); }))
-                      .enter().append('g')
-                      .attr('class', 'legend')
-                      .attr('transform', function(d, i) { return 'translate(0,' + i * 25 + ')'; });
+      // var legend = svg.selectAll('.legend')
+      //                 .data(color.domain().filter(function(d, i) { return (i < 5); }))
+      //                 .enter().append('g')
+      //                 .attr('class', 'legend')
+      //                 .attr('transform', function(d, i) { return 'translate(0,' + i * 25 + ')'; });
 
-        // rect: box for each of the legend items 
-          legend.append('rect')
-                .attr('x', 50)
-                .attr('y', height - 150)
-                .attr('width', 18)
-                .attr('height', 18)
-                .style('fill', color);
+      //   // rect: box for each of the legend items 
+      //     legend.append('rect')
+      //           .attr('x', 50)
+      //           .attr('y', height - 150)
+      //           .attr('width', 18)
+      //           .attr('height', 18)
+      //           .style('fill', color);
 
-        // text for legend 
-          legend.append('text')
-                .attr('x', 80)
-                .attr('y', height - 140)
-                .attr('dy', '.35em')
-                .style('text-anchor', 'start')
-                .text(function(d) { return d; });
+      //   // text for legend 
+      //     legend.append('text')
+      //           .attr('x', 80)
+      //           .attr('y', height - 140)
+      //           .attr('dy', '.35em')
+      //           .style('text-anchor', 'start')
+      //           .text(function(d) { return d; });
 
-          // text label for the x axis
-          svg.append("text")      
-             .attr('x', 30)
-             .attr("y", height - 160 )
-             .style('text-anchor', 'start')
-             .text('Year of peak CO2 emissions per capita');
+      //     // text label for the x axis
+      //     svg.append("text")      
+      //        .attr('x', 30)
+      //        .attr("y", height - 160 )
+      //        .style('text-anchor', 'start')
+      //        .text('Year of peak CO2 emissions per capita');
         }
     })();

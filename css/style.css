@@ -1,35 +1,140 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
+
+/********** Document wide settings **********/
+
 * {
-  font-family: 'Source Sans Pro' , 'Arial';
-  font-size: 14px;
-  line-height: 1.6em;
+  font-family: 'Source Sans Pro' , 'Arial';  
 }
 
-html {
-  display: table;
-  margin: auto;
-} 
-
 body {
+  margin: 0px;
+}
+
+header {
+  /*z-index:-9999;*/
+  /*background-image: url('../img/earth.jpg');*/
+  /*background-color: cover;*/
+  /*background-position: center;*/
+  /*opacity: .9;*/
+  /*margin-bottom: 10px;*/
+  /*background-repeat: no-repeat;*/
+  background-color: #000;
+  height: 100vh;
+  
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /*color: #e41a1c;*/
+  color: #fff;
+}
+
+header li{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*align-items: center;*/
+  margin-bottom: 10px;
+  max-width: 940px;
+  list-style: none;
+}
+
+header a {
+  color: #fff;
+  /*color: #e41a1c;*/
+  text-decoration: none;
+}
+
+/*.header{
+  height: 50px;
+  top: 0px;
+  border: 1px solid #377eb8;
+  background-color: #377eb8;
+  color: #fff;
+}*/
+
+/********** Navigation bar settings **********/
+
+nav {
+  /*display: none;*/
+  z-index:1;
+  height: 30px;
+  top: 0px;
+  left: 0px;
+  background-color: #000;
+  width: 100%;
+  position: fixed;
+  text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    align-items: center;
+    background-color: #000;
+}
+
+nav li {
+    float: left;
+    align-items: center;
+    border-right: 1px solid #bbb;
+}
+
+nav li a {
+    display: block;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #CCCCCC;
+}
+
+nav li:last-child {
+    border-right: none;
+}
+
+.name {
+  margin-top: 250px;
+  font-weight:bold;
+  font-size:16pt;
+  padding-top:20px; }
+
+/*Content */
+.content {
+  font-size: 14px;
+  line-height: 1.6em;
+  display: table;
+  margin: 10px auto;
   width: 100%;
   height: 100%;
   min-width: 480px;
   max-width: 940px;
-  margin-bottom: -10px;
+  margin-bottom: 100px;
 }  
 
 h1 {
-  font-size: 22px;
+  font-size: 20px;
+  color: #fff;
+  /*color: #e41a1c;*/
   text-align: center;
-  height: 100%;
-  margin-bottom: 10px;
+  height: 12%;
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
 
 h2 {
   font-size: 18px;
   text-align: center;
-  /*margin-bottom: -10px;*/
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 h3 {
@@ -49,12 +154,23 @@ h5 {
   margin-bottom: -10px;
 }
 
-
 p {
+  margin-left: 10px;
   margin-bottom: 10px;
   margin-top: 10px;
 }
 
+hr { 
+    display: block;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+/*D3 settings*/
 .lineChart{
   font-size: 12px;
   line-height: 1.6em;
@@ -65,11 +181,26 @@ p {
   line-height: 1.6em;
 }
 
+#countrySetFuelMix {
+ font-size: 10px;
+  line-height: 1.6em; 
+}
+
+.x.axis, .y.axis {
+  font-size: 14px;
+  line-height: 1.6em;  
+}
+
 .axis path,
 .axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
+}
+
+.path {
+  fill: none;
+  stroke-width: 2;
 }
 
 .dot {
@@ -87,4 +218,30 @@ p {
   fill: #ccc;
   stroke: #888;
   stroke-linejoin: round;
+}
+
+.graphtitle{
+  font-weight:bold;
+  font-size:110%;
+  text-align: center;
+}
+
+/********** PANELS **********/
+.tab-panel { display: none;}
+
+.tab-panel.active {display: block;}
+
+.tab-panel p { margin: 20px;}
+
+.tab-list {
+  height: 20px;
+  width: 100%;
+  list-style: none;
+  display: inline;
+  color: #000;
+}
+
+.tab-list a {
+ color: #000;
+ text-decoration: none; 
 }
