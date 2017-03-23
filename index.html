@@ -6,29 +6,29 @@
     <meta property='og:type' content='website' />
     <meta property='og:url' content='https://ourenergychallenge.herokuapp.com/index.html' />
     <meta property="og:image" content="img/map.png" />
+    <meta name = 'viewport' content = 'width=device-width, initial-scale = 1.0'/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script src = 'https://code.jquery.com/jquery-3.2.0.min.js'></script>
-    <!-- <script src='js/menunav.js'></script> -->
   </head>
+  
   <body>
   
+  <!-- Navigation menu across top of page -->
   <nav>
   	<ul>
-  		<!-- <li><a href = '#top'>top</a></li> -->
   		<li><a href = '#GDPTPESCO2'>economics, energy use, CO2</a></li>
         <li><a href = '#Transitions'>energy transitions</a></li>
         <li><a href = '#EnergyCosts'>energy costs</a></li>
         <li><a href = '#Conclusion'>conclusion</a></li>
         <li><a href = '#Appendix'>appendix</a></li>
-        <li><a href = '#Notes'>notes</a></li>
-        
+        <li><a href = '#Notes'>notes</a></li>  
     </ul>
   </nav>
 
+  <!-- Initial view on page load -->
   <header> 
-  
     <h1>Our energy challenge</br>by Nikos Tsafos</h1>
     <ul>
         <li><a href = '#GDPTPESCO2'>Can we grow the economy and reduce CO2 emissions?</a></li>
@@ -40,673 +40,415 @@
     </ul>
   </header>
 
-  <div class = 'content'>
+  <!-- Main content -->
+  <div id = 'content'>
 
-    <p>Why is the world so slow to fight climate change?</p>
-
-    <p>Lots of reasons, of course.</p>
-
-    <p>But let's focus on three.</p>
-
-    <p>Three major assumptions we make about energy, climate and the economy.</p>
-
-    <p>First: that you cannot grow the economy while reducing CO<sub>2</sub> emissions.</p>
-
-    <p>Second: that energy systems change only slowly.</p>
-
-    <p>Third: that expensive energy will hurt the economy and jobs.</p>
-
-    <p>It's hard to be optimistic about fighting climate change if you believe these things.</p> 
-
-    <p>Are these assumptions true?</p>
-
+    <p>Why is the world so slow to fight climate change?</br>
+    Lots of reasons, of course.</br>
+    But let's focus on three.</br>
+    Three major assumptions we make about energy, climate and the economy.</br>
+    First: that you cannot grow the economy while reducing CO<sub>2</sub> emissions.</br>
+    Second: that energy systems change only slowly.</br>
+    Third: that expensive energy will hurt the economy and jobs.</br>
+    It's hard to be optimistic about fighting climate change if you believe these things.</br>
+    Are these assumptions true?</br>
     <a name = 'GDPTPESCO2'></a>
-    <p>What if they are not?</p>
-
+    What if they are not?</p>
+    
     <!-- NEW SECTION -->
     <hr><h2>Can we grow the economy and reduce CO<sub>2</sub> emissions?</h2><hr>
 
-    <p>We need energy in order to survive. And we need energy to power our economies.</p>
+    <p>
+    We need energy to survive.</br>
+    We need energy to power our factories and our offices and our homes.</br>
+    We need energy to move people and goods around.</br>
+    Modern life is inconceivable without modern energy.</br>
+    But what, exactly, is the relationship between incomes and energy consumption?</br> 
+    Richer countries use more energy.</br> 
+    But the relationship is neither steady nor linear.</br>
+    Countries at similar income levels have vastly different CO<sub>2</sub> footprints.</br>
+    Take Switzerland and Qatar. Similar incomes (~$75k per capita), but Qatar emits almost 8x more CO<sub>2</sub> per capita than Switzerland.</br>
+    Or Portugal and Bahrain. Similar incomes (~$22k per capita), but Bahrain emits almost 4x more CO<sub>2</sub> per capita than Portugal.</br>
+    Or Panama and Curacao. Similar incomes (~$10-12k per capita), but Curacao emits 11x more CO<sub>2</sub> per capita than Panama.</br>
+    Or Switzerland and Portugal. Switzerland emits 12% more CO<sub>2</sub>, but its income is 3.5x higher.</br>
+    Or Trinidad and Tobago and Luxembourg. Similar CO<sub>2</sub> emissions (~16 tons per capita) but incomes are 6.4x higher in Luxembourg.</br>
+    Income does not predict CO<sub>2</sub> emissions.
+    </p>
 
-    <p>This fact is so fixed in our thinking.</p> 
+        <div class = 'graphic' id = 'scatterGDPCO2CAPITA'>
+            <script src='js/scatterPlots.js'></script>
+        </div>
+        <div class = 'graphLegend'>
+            <ul>
+                <li style='color: #4575b4'>Asia</li>
+                <li style='color: #fc8d59'>Africa</li>
+                <li style='color: #e0f3f8'>OECD</li>
+                <li style='color: #91bfdb'>Middle East</li>
+                <li style='color: #fee090'>Non-OECD Americas</li>
+                <li style='color: #d73027'>Non-OECD Europe and Eurasia</li>
+            </ul>
+        </div>
+    <p class = 'graphFootnote'>Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
 
-    <p>This is the first assumption we make: that energy and grow go together.</p>
-
-    <p>What follows is this: if we want to curb CO2 emissions, we might need to sacrifice growth.</p>
-
-    <p>That's a political non-starter.</p>
-
-    <p>What does the evidence say?</p>
-
-    <p>Richer countries use more energy, and thus, emit more CO<sub>2</sub>.</p>
-
-    <p>But the relationship is neither steady nor linear.</p>
-
-    <p>Countries at similar income levels have vastly different CO<sub>2</sub> footprints.</p>
-
-    <p>Take Switzerland and Qatar. Similar incomes (~$75k per capita), but Qatar emits almost 8x more CO<sub>2</sub> per capita than Switzerland.</p>
-
-    <p>Or Portugal and Bahrain. Similar incomes (~$22k per capita), but Bahrain emits almost 4x more CO<sub>2</sub> per capita than Portugal.</p>
-
-    <p>Or Panama and Curacao. Similar incomes (~$10-12k per capita), but Curacao emits 11x more CO<sub>2</sub> per capita than Panama.</p>
-
-    <p>Or Switzerland and Portugal. Switzerland emits 12% more CO<sub>2</sub>, but its income is 3.5x higher.</p>
-
-    <p>Or Trinidad and Tobago and Luxembourg. Similar CO<sub>2</sub> emissions (~16 tons per capita) but incomes are 6.4x higher in Luxembourg.</p>
-
-    <p>Income does not predict CO<sub>2</sub> emissions.</p>
-
-    <div class = 'scatterOne' id = 'scatterGDPCAPITACO2CAPITA'>
-        <script src='js/scatterGDPCAPITACO2CAPITA.js'></script> 
-    </div>
-    <div class = 'graphLegend'>
-        <svg width = '940', height = '25'>
-            <rect width = '15', height = '15', x = '160' y = '10' fill = '#4575b4'></rect>
-            <text x = 180, y = 22>Asia</text>
-            <rect width = '15', height = '15', x = '220' y = '10' fill = '#fc8d59'></rect>
-            <text x = 240, y = 22>Africa</text>
-            <rect width = '15', height = '15', x = '285' y = '10' fill = '#e0f3f8'></rect>
-            <text x = 305, y = 22>OECD</text>
-            <rect width = '15', height = '15', x = '350' y = '10' fill = '#91bfdb'></rect>
-            <text x = 370, y = 22>Middle East</text>
-            <rect width = '15', height = '15', x = '450' y = '10' fill = '#fee090'></rect>
-            <text x = 470, y = 22>Non-OECD Americas</text>
-            <rect width = '15', height = '15', x = '600' y = '10' fill = '#d73027'></rect>
-            <text x = 620, y = 22>Non-OECD Europe and Eurasia</text>
-        </svg>
-        <p class = 'graphfootnote' align="center">Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
-    </div>
-
-    <!-- NEW SECTION -->
+    <!-- NEW SUB-SECTION -->
     <h3>Incomes and CO<sub>2</sub> emissions: Digging deeper</h3>
 
-    <p>Why not?</p>
+    <p>
+    Why not?</br>
+    First, countries use different amounts of energy.</br>
+    Their economies may be different. One might rely on heavy industry, another on services.</br>
+    Their climate may be different. Cold countries use energy for heat; warmer use it for AC.</br>
+    Their energy prices may be different. Some produce energy, others import it. Some tax energy, others subsidize it.</br>
+    Their capital may be different. Machines may be newer or buildings older.</br>
+    Their policies may be different. Government may have energy efficiency mandates.</br>
+    All these differences affect energy consumption.</br>
+    Take Malta and Bahrain. Similar incomes (~$20k per capita), but Bahrain consumes 5x more energy per capita as Malta.</br>
+    Or Trinidad and Tobago and Uruguay. Similar incomes ($14-16K per capita), but Trinidad consumes 9x more energy per capita than Uruguay.</br> 
+    Income, again, is a poor predictor of energy consumption.</br>
+    </p>
 
-    <p>First, countries use different amounts of energy.</p>
+        <div class = 'graphic' id = 'scatterGDPENERGYCAPITA'>
+            <script src='js/scatterPlots.js'></script>
+        </div>
+        <div class = 'graphLegend'>
+            <ul>
+                <li style='color: #4575b4'>Asia</li>
+                <li style='color: #fc8d59'>Africa</li>
+                <li style='color: #e0f3f8'>OECD</li>
+                <li style='color: #91bfdb'>Middle East</li>
+                <li style='color: #fee090'>Non-OECD Americas</li>
+                <li style='color: #d73027'>Non-OECD Europe and Eurasia</li>
+            </ul>
+        </div>
+    <p class = 'graphFootnote'>Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
+    
 
-    <p>Their economies may be different. One might rely on heavy industry, another on services.</p>
+    <p>Second, countries generate their energy in different ways.</br> 
+    Fossil fuels such as coal, oil and gas emit more CO<sub>2</sub> than hydro, nuclear power, wind or solar.</br>
+    Qatar and Iceland have similar energy consumption (20 toe vs 18 toe per capita), but CO<sub>2</sub> emissions are 5x higher in Qatar.</br>
+    Qatar uses oil and gas; Iceland uses hydro and geothermal energy.</br>
+    Australia consumes slightly (7%) more energy per capita than Sweden, but its emissions are over 4x higher.</br>
+    Germany's emissions are 2x higher than France's, even though they consume similar amounts of energy.</br>
+    Not even energy consumption, on its own, predicts CO<sub>2</sub> emissions.</br>
+    </p>
 
-    <p>Their climate may be different. Cold countries use energy for heat; warmer use it for AC.</p>
-
-    <p>Their energy prices may be different. Some produce energy, others import it. Some tax energy, others subsidize it.</p>
-
-    <p>Their capital may be different. Machines may be newer or buildings older.</p>
-
-    <p>Their policies may be different. Government may have energy efficiency mandates.</p>
-
-    <p>All these differences affect energy consumption.</p>
-
-    <p>Take Malta and Bahrain. Similar incomes (~$20k per capita), but Bahrain consumes 5x more energy per capita as Malta.</p>
-
-    <p>Or Trinidad and Tobago and Uruguay. Similar incomes ($14-16K per capita), but Trinidad consumes 9x more energy per capita than Uruguay.</p> 
-
-    <p>Income, again, is a poor predictor of energy consumption.</p>
-
-    <div class = 'scatterTwo' id = 'scatterGDPENERGYCO2CAPITA'>
-        <script src='js/scatterGDPENERGYCO2CAPITA.js'></script> 
-    </div>
-    <div class = 'graphLegend'>
-        <svg width = '940', height = '25'>
-            <rect width = '15', height = '15', x = '160' y = '10' fill = '#4575b4'></rect>
-            <text x = 180, y = 22>Asia</text>
-            <rect width = '15', height = '15', x = '220' y = '10' fill = '#fc8d59'></rect>
-            <text x = 240, y = 22>Africa</text>
-            <rect width = '15', height = '15', x = '285' y = '10' fill = '#e0f3f8'></rect>
-            <text x = 305, y = 22>OECD</text>
-            <rect width = '15', height = '15', x = '350' y = '10' fill = '#91bfdb'></rect>
-            <text x = 370, y = 22>Middle East</text>
-            <rect width = '15', height = '15', x = '450' y = '10' fill = '#fee090'></rect>
-            <text x = 470, y = 22>Non-OECD Americas</text>
-            <rect width = '15', height = '15', x = '600' y = '10' fill = '#d73027'></rect>
-            <text x = 620, y = 22>Non-OECD Europe and Eurasia</text>
-        </svg>
-        <p class = 'graphfootnote' align="center">Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
-    </div>
-
-    <p>Second, countries generate their energy in different ways.</p> 
-
-    <p>Fossil fuels such as coal, oil and gas emit more CO<sub>2</sub> than hydro, nuclear power, wind or solar.</p>
-
-    <p>Qatar and Iceland have similar energy consumption (20 toe vs 18 toe per capita), but CO<sub>2</sub> emissions are 5x higher in Qatar.</p>
-
-    <p>Qatar uses oil and gas; Iceland uses hydro and geothermal energy.</p>
-
-    <p>Australia consumes slightly (7%) more energy per capita than Sweden, but its emissions are over 4x higher.</p>
-
-    <p>Germany's emissions are 2x higher than France's, even though they consume similar amounts of energy.</p>
-
-    <p>Not even energy consumption, on its own, predicts CO<sub>2</sub> emissions.</p>
-
-    <!-- NEW SECTION -->
+    <!-- NEW SUB-SECTION -->
     <h3>Incomes and CO<sub>2</sub> emissions: Trends over time</h3>
 
-    <p>So far, we have looked only at 2014 data.</p>
+    <p>So far, we have looked only at 2014 data.</br>
+    Maybe countries end up at different places.</br>
+    But can an economy grow without more energy? Or more CO<sub>2</sub> emissions?</br>
+    The evidence is clear: yes.</br>
+    But it is not a given.</br>
+    There are many different paths.</br>
+    Pattern #1 (Turkey): GDP, energy consumption and CO<sub>2</sub> emissions are closely linked. Not perfectly overlapping, but close.</br> 
+    Pattern #2 (Australia): Income at some point delinks from energy use and CO<sub>2</sub> emissions.</br>
+    Pattern #3 (Russia): GDP grows but energy use and emissions do not, largely because efficiency gains persist.</br> 
+    Pattern #4 (Germany): CO<sub>2</sub> emissions fall faster than energy use; usually because countries relied more on gas or nuclear power.</br>
+    Pattern #5 (United Kingdom): No clear link between GDP, energy and CO<sub>2</sub> emissions: incomes grow faster than energy or emissions</br>
+    Pattern #6 (China): Income, energy use and emissions grow, but not in tandem: incomes are up 10x in China (vs 1990), energy use 3x, and CO<sub>2</sub> emissions 4x.</br>
+    Pattern #7 (Iran): Energy use and CO<sub>2</sub> emissions growing faster than incomes; energy-dependent growth models that do not deliver commensurate growth.</br>
+    Pattern #8 (Bangladesh): Growth in CO<sub>2</sub> outpaces energy use or incomes, as countries replace traditonal (e.g. biomass) for fossil fuels.</br>
+    </p>
 
-    <p>Maybe countries end up at different places.</p>
+    <h3>GDP, energy consumption and CO<sub>2</sub> emissions</h3>
+        <div class = 'graphic' id = 'lineGDPENERGYCO2'>
+            <script src='js/lineGDPENERGYCO2.js'></script>
+        </div>
+        <div class = 'graphLegend'>
+            <ul>
+                <li style='color: #e41a1c'>Gross domestic product</li>
+                <li style='color: #4daf4a'>Energy use</li>
+                <li style='color: #377eb8'>CO2 emissions</li>
+            </ul>
+        </div>
+    <p class = 'graphFootnote'>Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
+    
 
-    <p>But can an economy grow without more energy? Or more CO<sub>2</sub> emissions?</p>
-
-    <p>The evidence is clear: yes.</p>
-
-    <p>But it is not a given.</p>
-
-    <p>There are so many different patterns.</p>
-
-    <p>Pattern #1 (Turkey): GDP, energy consumption and CO<sub>2</sub> emissions are closely linked. Not perfectly overlapping, but close.</p> 
-
-    <p>Pattern #2 (Australia): Income at some point delinks from energy use and CO<sub>2</sub> emissions.</p>
-
-    <p>Pattern #3 (Russia): GDP grows but energy use and emissions do not, largely because efficiency gains persist.</p> 
-
-    <p>Pattern #4 (Germany): CO<sub>2</sub> emissions fall faster than energy use; usually because countries relied more on gas or nuclear power.</p>
-
-    <p>Pattern #5 (United Kingdom): No clear link between GDP, energy and CO<sub>2</sub> emissions: incomes grow faster than energy or emissions</p>
-
-    <p>Pattern #6 (China): Income, energy use and emissions grow, but not in tandem: incomes are up 10x in China (vs 1990), energy use 3x, and CO<sub>2</sub> emissions 4x.</p>
-
-    <p>Pattern #7 (Iran): Energy use and CO<sub>2</sub> emissions growing faster than incomes; energy-dependent growth models that do not deliver commensurate growth.</p>
-
-    <p>Pattern #8 (Bangladesh): Growth in CO<sub>2</sub> outpaces energy use or incomes, as countries replace traditonal (e.g. biomass) for fossil fuels.</p>
-
-    <div class = 'lineChart' id = 'countrySet'>
-        <p class = 'graphtitle' >GDP, energy consumption and CO<sub>2</sub> emissions</p>
-        <script src='js/lineChartGDPCO2TPES.js'> </script>
-        <script>plotCountrySingle('#countrySet', 'Turkey')
-                plotCountrySingle('#countrySet', 'Australia')
-                plotCountrySingle('#countrySet', 'Russia')
-                plotCountrySingle('#countrySet', 'Germany')
-                plotCountrySingle('#countrySet', 'United Kingdom')
-                plotCountrySingle('#countrySet', 'China')
-                plotCountrySingle('#countrySet', 'Iran')
-                plotCountrySingle('#countrySet', 'Bangladesh')
-        </script>
-    </div>
-    <div class = 'graphLegend'>
-        <svg width = '940', height = '25'>
-            <rect width = '15', height = '15', x = '240' y = '10' fill = '#e41a1c'></rect>
-            <text x = 260, y = 22>Gross domestic product</text>
-            <rect width = '15', height = '15', x = '415' y = '10' fill = '#4daf4a'></rect>
-            <text x = 435, y = 22>Energy consumption</text>
-            <rect width = '15', height = '15', x = '570' y = '10' fill = '#377eb8'></rect>
-            <text x = 590, y = 22>CO2 emissions</text>
-        </svg>
-        <p class = 'graphfootnote' align="center">Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
-    </div>
-
-    <p>In sum: there is no reason to think that economic growth equals more energy consumption.</p>
-
-    <p>Or that more energy consumption must equal more CO<sub>2</sub> emissions.</p>
-
-    <p>We have so many different trajectories around the world and throughout history.</p>
-
-    <p>(The <a href='appendixone.html' target= '_blank'>appendix</a> shows GDP, energy consumption and CO<sub>2</sub> emissions for 133 countries).</p>
-
-	<!-- NEW SECTION -->
+    <p>
+    In sum: there is no reason to think that economic growth equals more energy consumption.</br>
+    Or that more energy consumption must equal more CO<sub>2</sub> emissions.</br>
+    We have so many different trajectories around the world and throughout history.</br>
+    </p>
+    
+    <!-- NEW SUB-SECTION -->
     <h3>The big picture: Living standards up; emissions less so</h3> 
 
-    <p>Let's step back and look at the big picture.</p> 
+    <p>
+    Let's step back and look at the big picture.</br> 
+    Most countries continue to grow: in 101 countries, real GDP per capita was either at its highest level or just below its peak (peak occurred in 2008-2013).</br> 
+    These are the countries shown in blue.</br>
+    There are also a few countries where per capita GDP peaked before 1990.</br>
+    That's because of war, revolution or economic stagnation, the last often linked to mismanagement of natural resources. </br>
+    Finally, there are countries where per capita incomes have stagnated, peaking after 1990 but before 2007 (21 countries), many of them in Europe.</br>
+    </p>
 
-    <p>Most countries continue to grow: in 101 countries, real GDP per capita was either at its highest level or just below its peak (peak occurred in 2008-2013).</p> 
-
-    <p>These are the countries shown in blue.</p>
-
-    <p>There are also a few countries where per capita GDP peaked before 1990.</p>
-
-    <p>That's because of war, revolution or economic stagnation, the last often linked to mismanagement of natural resources. </p>
-
-    <p>Finally, there are countries where per capita incomes have stagnated, peaking after 1990 but before 2007 (21 countries), many of them in Europe.</p> 
-
-    <div class = 'graphic' id = 'mapGDPCAPITA'>
-        <p class = 'graphtitle' align="center">Year of peak GDP per capita</p>
-        <script src='js/mapGDPCAPITA.js'></script>
+    <h3>Year of peak GDP per capita</h3>
+        <div class = 'graphic' id = 'mapGDPCAPITA'>
+            <script src='js/maps.js'></script>
+        </div>
         <div class = 'graphLegend'>
-        <svg width = '940', height = '25'>
-            <rect width = '15', height = '15', x = '120' y = '10' fill = '#d7191c'></rect>
-            <text x = 140, y = 22>Before 1990</text>
-            <rect width = '15', height = '15', x = '230' y = '10' fill = '#fdae61'></rect>
-            <text x = 250, y = 22>From 1990 to 1999</text>
-            <rect width = '15', height = '15', x = '370' y = '10' fill = '#ffffbf'></rect>
-            <text x = 390, y = 22>From 2000 to 2007</text>
-            <rect width = '15', height = '15', x = '510' y = '10' fill = '#abd9e9'></rect>
-            <text x = 530, y = 22>From 2008 to 2013</text>
-            <rect width = '15', height = '15', x = '650' y = '10' fill = '#2c7bb6'></rect>
-            <text x = 670, y = 22>Highest was 2014</text>
-        </svg>
-        <p class = 'graphfootnote' align="center">Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p> 
-    </div>
+            <ul>
+                <li style='color: #d7191c'>Before 1990</li>
+                <li style='color: #fdae61'>From 1990 to 1999</li>
+                <li style='color: #ffffbf'>From 2000 to 2007</li>
+                <li style='color: #abd9e9'>From 2008 to 2013</li>
+                <li style='color: #2c7bb6'>Highest was 2014</li>
+            </ul>
+        </div>
+    <p class = 'graphFootnote'>Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
+    
 
-    <p>Per capita CO<sub>2</sub> emissions show a dramatically different pattern.</p>
+    <p>Per capita CO<sub>2</sub> emissions show a dramatically different pattern.</br>
+    In 30 countries, they peaked before 1990. This is in Europe, North America and parts of Africa (largely due to war).</br>
+    In the Former Soviet Union, energy consumption and CO<sub>2</sub> emissions have been declining since 1990, often at rapid rates.</br>
+    Per capita emissions are rising mostly in Asia and Latin America, as well as parts of Africa (36 countries in total). </br>
+    In all other places, emissions peaked either recently (25 countries in 2008-2013), or a long time ago.</br>
+    </p>
 
-    <p>In 30 countries, they peaked before 1990. This is in Europe, North America and parts of Africa (largely due to war).</p>
-
-    <p>In the Former Soviet Union, energy consumption and CO<sub>2</sub> emissions have been declining since 1990, often at rapid rates.</p>
-
-    <p>Per capita emissions are rising mostly in Asia and Latin America, as well as parts of Africa (36 countries in total). </p>
-
-    <p>In all other places, emissions peaked either recently (25 countries in 2008-2013), or a long time ago.</p> 
-
-    <div class = 'graphic' id = 'mapCO2CAPITA'>
-        <p class = 'graphtitle' align="center">Year of peak CO<sub>2</sub> emissions per capita</p>
-        <script src='js/mapCO2CAPITA.js'></script>
+    <h3>Year of peak CO<sub>2</sub> emissions per capita</h3>
+        <div class = 'graphic' id = 'mapCO2CAPITA'>
+            <script src='js/maps.js'></script>
+        </div>
         <div class = 'graphLegend'>
-        <svg width = '940', height = '25'>
-            <rect width = '15', height = '15', x = '120' y = '10' fill = '#d7191c'></rect>
-            <text x = 140, y = 22>Before 1990</text>
-            <rect width = '15', height = '15', x = '230' y = '10' fill = '#fdae61'></rect>
-            <text x = 250, y = 22>From 1990 to 1999</text>
-            <rect width = '15', height = '15', x = '370' y = '10' fill = '#ffffbf'></rect>
-            <text x = 390, y = 22>From 2000 to 2007</text>
-            <rect width = '15', height = '15', x = '510' y = '10' fill = '#abd9e9'></rect>
-            <text x = 530, y = 22>From 2008 to 2013</text>
-            <rect width = '15', height = '15', x = '650' y = '10' fill = '#2c7bb6'></rect>
-            <text x = 670, y = 22>Highest was 2014</text>
-        </svg>
-        <p class = 'graphfootnote' align="center">Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
-    </div>
-
-    <p>What does all this mean?</p>
-
-    <p>We know that the link between incomes and CO<sub>2</sub> emissions is far from linear.</p> 
-
-    <p>We have so many countries that have grown without using more energy and/or emitting more CO<sub>2</sub>.</p>
-
-    <p>Not all countries are equal, of course: the growth in China and India can overwhelm what happens in many other countries.</p> 
-
+            <ul>
+                <li style='color: #d7191c'>Before 1990</li>
+                <li style='color: #fdae61'>From 1990 to 1999</li>
+                <li style='color: #ffffbf'>From 2000 to 2007</li>
+                <li style='color: #abd9e9'>From 2008 to 2013</li>
+                <li style='color: #2c7bb6'>Highest was 2014</li>
+            </ul>
+        </div>
+    <p class = 'graphFootnote'>Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
+    
+    <p>What does all this mean?</br>
+    We know that the link between incomes and CO<sub>2</sub> emissions is far from linear.</br> 
+    We have so many countries that have grown without using more energy and/or emitting more CO<sub>2</sub>.</br>
+    Not all countries are equal, of course: the growth in China and India can overwhelm what happens in many other countries.</br> 
     <a name = 'Transitions'></a>
-    <p>Yet the broad picture is clear: so many countries where GDP per capita is growing while emissions are not.</p>
+    Yet the broad picture is clear: so many countries where GDP per capita is growing while emissions are not.</br>
 
     <!-- NEW SECTION -->
     <hr><h2>Can we change our energy systems quickly?</h2><hr>
 
-    <p>The next major assumption we make is about change.</p>
+    <p>The next major assumption we make is about change.</br>
+    The consensus is that energy systems change only slowly.</br> 
+    It will decades to move from fossil fuels to renewable energy sources.</br>
+    Why take on costly action today if the results won't show for a long time?</br>
+    As in: after politicians are no longer in power or CEOs no longer in office.</br>
+    The logic is compelling.</br>
+    What does the evidence say?</br>
+    In the grand scheme of things, the energy system changes slowly.</br>
+    Nuclear power, for example, started to pick up in the late 1960s; by the mid 1990s, it only provided ~6% of the world's energy.</br>
+    That's a steep penetration curve.</br>
+    But look at smaller groupings, and a different image emerges.</br>
+    Yes, there is broad stability: oil's market share in Africa and coal's market share in the Asia Pacific is broadly flat over 50 years.</br>
+    But elsewhere, we see major changes. The Middle East used very little gas in the mid 1960s. Now it's more important than oil.</br>
+    In Central and South America, hydro went from 10% in 1970 to 25% in 1990.</br> 
+    In Europe and Eurasia, gas started from a similar point in 1970 and exceeded 33% in 2005.</br>
+    We don't necessarily observe dramatic change.</br>
+    But it is also not true that energy systems cannot change.</br>
+    </p>
 
-    <p>The consensus is that energy systems change only slowly.</p> 
+    <h3>Energy consumption by fuel (as % of total energy)</h3>
+        <div class = 'graphic' id = 'regionFuelMix'>
+            <script src='js/lineFuelMix.js'></script>
+        </div>
+        <div class = 'graphLegend'>
+            <ul>
+                <li style='color: #636363'>Coal</li>
+                <li style='color: #2ca25f'>Oil</li>
+                <li style='color: #d73027'>Gas</li>
+                <li style='color: #fc8d59'>Nuclear</li>
+                <li style='color: #91bfdb'>Hydro</li>
+                <li style='color: #fee090'>Renewables</li>
+            </ul>
+        </div>
+    <p class = 'graphFootnote'>Source: BP Statistical Review of World Energy (June 2016)</p>
 
-    <p>It will decades to move from fossil fuels to renewable energy sources.</p>
+    <p>Now let us move to countries. Start from the world's 10 largest energy consumers (in 2015).</br>
+    Once again, we see relative stability; but there are more pronounced shifts now.</br>
+    In Brazil, oil went from 70% in 1973 to 50% in 1985. That's a major shift.</br>
+    In Canada, oil went from 45% in 1973 to 30% in 1985.</br>
+    In China, coal has thrice lost market: from 87% in 1965 to 70% in 1976; from 77% in 1991 to 70% in 2000; and from 73% in 2005 to 64% in 2015.</br>
+    But China also shows that these relative declines need not last. They can be reversed.</br>
+    Other countries show similar sharp changes: Japan, Korea, Iran.</br>
+    Even the United States, which is a bigger market, has seen coal lose market share quickly: from 24% in 2008 to 17% in 2015.</br> 
+    </p>
 
-    <p>Why take on costly action today if the results won't show for a long time?</p>
+    <h3>Energy consumption by fuel (as % of total energy)</h3>
+        <div class = 'graphic' id = 'fuelMixTop10'></div>
+        <div class = 'graphLegend'>
+            <ul>
+                <li style='color: #636363'>Coal</li>
+                <li style='color: #2ca25f'>Oil</li>
+                <li style='color: #d73027'>Gas</li>
+                <li style='color: #fc8d59'>Nuclear</li>
+                <li style='color: #91bfdb'>Hydro</li>
+                <li style='color: #fee090'>Renewables</li>
+            </ul>
+        </div>
+    <p class = 'graphFootnote'>Source: BP Statistical Review of World Energy (June 2016)</p>
 
-    <p>As in: after politicians are no longer in power or CEOs no longer in office.</p>
+    <p>Such shifts are even more pronounced in smaller energy markets.</br>
+    Let's look at the next 10 largest energy users, which, again, includes a mix of emerging and established economies.</br>
+    Here, too, we see some profound shifts in energy consumption.</br>
+    Saudi Arabia went from a purely oil-based energy market to one that utilized (previously flared) natural gas.</br>
+    France scaled up nuclear power after the 1973 oil shock: by 1990, France got a third of its energy from nuclear, versus 2% in 1973.</br>
+    Indonesia started to use more natural gas, and more recently, more coal to reduce its reliance on oil.</br>
+    Mexico turned to natural gas: from 26% of its total energy in 2000, gas provided 40% in 2015.</br>
+    We see similar shifts in every other major country.</br>
+    In fact, significant change is the norm rather than the exception.</br>
+    </p>
 
-    <p>The logic is compelling.</p>
+    <h3>Energy consumption by fuel (as % of total energy)</h3>
+        <div class = 'graphic' id = 'fuelMixTop1120'></div>
+        <div class = 'graphLegend'>
+            <ul>
+                <li style='color: #636363'>Coal</li>
+                <li style='color: #2ca25f'>Oil</li>
+                <li style='color: #d73027'>Gas</li>
+                <li style='color: #fc8d59'>Nuclear</li>
+                <li style='color: #91bfdb'>Hydro</li>
+                <li style='color: #fee090'>Renewables</li>
+            </ul>
+        </div>
+    <p class = 'graphFootnote'>Source: BP Statistical Review of World Energy (June 2016)</p>
 
-    <p>What does the evidence say?</p>
-
-    <p>In the grand scheme of things, the energy system changes slowly.</p>
-
-    <p>Nuclear power, for example, started to pick up in the late 1960s; by the mid 1990s, it only provided ~6% of the world's energy.</p>
-
-    <p>That's a steep penetration curve.</p>
-
-    <p>But look at smaller groupings, and a different image emerges.</p>
-
-    <p>Yes, there is broad stability: oil's market share in Africa and coal's market share in the Asia Pacific is broadly flat over 50 years.</p>
-
-    <p>But elsewhere, we see major changes. The Middle East used very little gas in the mid 1960s. Now it's more important than oil.</p>
-
-    <p>In Central and South America, hydro went from 10% in 1970 to 25% in 1990.</p> 
-
-    <p>In Europe and Eurasia, gas started from a similar point in 1970 and exceeded 33% in 2005.</p>
-
-    <p>We don't necessarily observe dramatic change.</p>
-
-    <p>But it is also not true that energy systems cannot change.</p>
-
-    <div class = 'fuelMixChart' id = 'regionFuelMix'>
-        <p class = 'graphtitle' align="center">Energy consumption by fuel (as % of total energy)</p>
-        <script src='js/lineChartFuelMixPCT.js'> </script>
-        <script>
-                lineChartFuelMixPCT('#regionFuelMix', 'Africa', 3, .8)
-                lineChartFuelMixPCT('#regionFuelMix', 'Asia Pacific', 3, .8)
-                lineChartFuelMixPCT('#regionFuelMix', 'Europe & Eurasia', 3, .8)
-                lineChartFuelMixPCT('#regionFuelMix', 'Middle East', 3, .8)
-                lineChartFuelMixPCT('#regionFuelMix', 'North America', 3, .8)
-                lineChartFuelMixPCT('#regionFuelMix', 'S. & Cent. America', 3, .8)
-        </script>
-    </div>
-    <div class = 'graphLegend'>
-        <svg width = '940', height = '25'>
-            <rect width = '15', height = '15', x = '290' y = '10' fill = '#636363'></rect>
-            <text x = 310, y = 22>Coal</text>
-            <rect width = '15', height = '15', x = '350' y = '10' fill = '#2ca25f'></rect>
-            <text x = 370, y = 22>Oil</text>
-            <rect width = '15', height = '15', x = '405' y = '10' fill = '#d73027'></rect>
-            <text x = 425, y = 22>Gas</text>
-            <rect width = '15', height = '15', x = '460' y = '10' fill = '#fc8d59'></rect>
-            <text x = 480, y = 22>Nuclear</text>
-            <rect width = '15', height = '15', x = '535' y = '10' fill = '#91bfdb'></rect>
-            <text x = 555, y = 22>Hydro</text>
-            <rect width = '15', height = '15', x = '600' y = '10' fill = '#fee090'></rect>
-            <text x = 620, y = 22>Renewables</text>
-        </svg>
-        <p class = 'graphfootnote' align="center">Source: BP Statistical Review of World Energy (June 2016)</p>
-    </div>
-
-    <p>Now let us move to countries. Start from the world's 10 largest energy consumers (in 2015).</p>
-
-    <p>Once again, we see relative stability; but there are more pronounced shifts now.</p>
-
-    <p>In Brazil, oil went from 70% in 1973 to 50% in 1985. That's a major shift.</p>
-
-    <p>In Canada, oil went from 45% in 1973 to 30% in 1985.</p>
-
-    <p>In China, coal has thrice lost market: from 87% in 1965 to 70% in 1976; from 77% in 1991 to 70% in 2000; and from 73% in 2005 to 64% in 2015.</p>
-
-    <p>But China also shows that these relative declines need not last. They can be reversed.</p>
-
-    <p>Other countries show similar sharp changes: Japan, Korea, Iran.</p>
-
-    <p>Even the United States, which is a bigger market, has seen coal lose market share quickly: from 24% in 2008 to 17% in 2015.</p> 
-
-    <div class = 'fuelMixChart' id = 'fuelMixTop10'>
-        <p class = 'graphtitle' align="center">Energy consumption by fuel (as % of total energy)</p>
-        <script src='js/lineChartFuelMixPCT.js'> </script>
-        <script>lineChartFuelMixPCT('#fuelMixTop10', 'Brazil', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop10', 'Canada', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop10', 'China', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop10', 'Germany', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop10', 'India', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop10', 'Iran', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop10', 'Japan', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop10', 'Russia', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop10', 'South Korea', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop10', 'United States', 5, 1.3)
-        </script>
-    </div>
-    <div class = 'graphLegend'>
-        <svg width = '940', height = '25'>
-            <rect width = '15', height = '15', x = '290' y = '10' fill = '#636363'></rect>
-            <text x = 310, y = 22>Coal</text>
-            <rect width = '15', height = '15', x = '350' y = '10' fill = '#2ca25f'></rect>
-            <text x = 370, y = 22>Oil</text>
-            <rect width = '15', height = '15', x = '405' y = '10' fill = '#d73027'></rect>
-            <text x = 425, y = 22>Gas</text>
-            <rect width = '15', height = '15', x = '460' y = '10' fill = '#fc8d59'></rect>
-            <text x = 480, y = 22>Nuclear</text>
-            <rect width = '15', height = '15', x = '535' y = '10' fill = '#91bfdb'></rect>
-            <text x = 555, y = 22>Hydro</text>
-            <rect width = '15', height = '15', x = '600' y = '10' fill = '#fee090'></rect>
-            <text x = 620, y = 22>Renewables</text>
-        </svg>
-        <p class = 'footnote' align="center">Source: BP Statistical Review of World Energy (June 2016)</p>
-    </div>
-
-    <p>Such shifts are even more pronounced in smaller energy markets.</p>
-
-    <p>Let's look at the next 10 largest energy users, which, again, includes a mix of emerging and established economies.</p>
-
-    <p>Here, too, we see some profound shifts in energy consumption.</p>
-
-    <p>Saudi Arabia went from a purely oil-based energy market to one that utilized (previously flared) natural gas.</p>
-
-    <p>France scaled up nuclear power after the 1973 oil shock: by 1990, France got a third of its energy from nuclear, versus 2% in 1973.</p>
-
-    <p>Indonesia started to use more natural gas, and more recently, more coal to reduce its reliance on oil.</p>
-
-    <p>Mexico turned to natural gas: from 26% of its total energy in 2000, gas provided 40% in 2015.</p>
-
-    <p>We see similar shifts in every other major country.</p>
-
-    <p>In fact, significant change is the norm rather than the exception.</p>
-
-    <div class = 'fuelMixChart' id = 'fuelMixTop1120'>
-        <p class = 'graphtitle' align="center">Energy consumption by fuel (as % of total energy)</p>
-        <script src='js/lineChartFuelMixPCT.js'> </script>
-        <script>lineChartFuelMixPCT('#fuelMixTop1120', 'Saudi Arabia', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop1120', 'France', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop1120', 'Indonesia', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop1120', 'United Kingdom', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop1120', 'Mexico', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop1120', 'Italy', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop1120', 'Spain', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop1120', 'Australia', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop1120', 'Turkey', 5, 1.3)
-                lineChartFuelMixPCT('#fuelMixTop1120', 'Thailand', 5, 1.3)
-        </script>
-    </div>
-    <div class = 'graphLegend'>
-        <svg width = '940', height = '25'>
-            <rect width = '15', height = '15', x = '290' y = '10' fill = '#636363'></rect>
-            <text x = 310, y = 22>Coal</text>
-            <rect width = '15', height = '15', x = '350' y = '10' fill = '#2ca25f'></rect>
-            <text x = 370, y = 22>Oil</text>
-            <rect width = '15', height = '15', x = '405' y = '10' fill = '#d73027'></rect>
-            <text x = 425, y = 22>Gas</text>
-            <rect width = '15', height = '15', x = '460' y = '10' fill = '#fc8d59'></rect>
-            <text x = 480, y = 22>Nuclear</text>
-            <rect width = '15', height = '15', x = '535' y = '10' fill = '#91bfdb'></rect>
-            <text x = 555, y = 22>Hydro</text>
-            <rect width = '15', height = '15', x = '600' y = '10' fill = '#fee090'></rect>
-            <text x = 620, y = 22>Renewables</text>
-        </svg>
-        <p class = 'footnote' align="center">Source: BP Statistical Review of World Energy (June 2016)</p>
-    </div>
-
-    <p>In fact, the big picture is clear: countries have routinely being able to change their reliance on a major fuel by 20 percentage points over 10 years.</p>
-
-    <p>Often, they have done a lot more.</p> 
-
-    <p>How did they do it?</p>
-
-    <p>In most cases, they replaced either oil or coal in stationary (non-transport) uses with other fuels.</p> 
-
-    <p>Only rarely have other fuels being the ones displaced.</p>
-
-    <p>Usually, these changes were either a resonse to a shock (e.g. the 1973 oil shock).</p>
-
-    <p>Or they came as a government pushed to use a new (usually domestic) resource such as hydro or natural gas.</p>
-
-    <p>Still: are these changes big enough to matter?</p>
-
-    <p>If one looks at what it takes to arrest climate change, the answer is yes.</p>
-
-    <p>The International Energy Agency outlines a scenario to stabilize the concentration of greenhouse gasses at 450 ppm (parts per million).</p>
-
-    <p>This is the scenario that would prevent temperature increases above 2<sup>o</sup>C.</p>
-
-    <p>In that scenario, the market share of oil should decline by 9 percentage points by 2040; and coal's should decline by 13 percentage points.</p>
-
-    <p>In short: two fuels should lose 22 percentage points market share in 27 years time frame (combined with lower overall energy demand growth, of course).</p>
-
-    <p>From a country-level perspective, that's hardly unprecedented.</p>
-
-    <p>Combined with the idea that we can grow an economy without using significantly more energy, we have a strong case for change.</p>
-
+    <p>In fact, the big picture is clear: countries have routinely being able to change their reliance on a major fuel by 20 percentage points over 10 years.</br>
+    Often, they have done a lot more.</br> 
+    How did they do it?</br>
+    In most cases, they replaced either oil or coal in stationary (non-transport) uses with other fuels.</br> 
+    Only rarely have other fuels being the ones displaced.</br>
+    Usually, these changes were either a resonse to a shock (e.g. the 1973 oil shock).</br>
+    Or they came as a government pushed to use a new (usually domestic) resource such as hydro or natural gas.</br>
+    Still: are these changes big enough to matter?</br>
+    If one looks at what it takes to arrest climate change, the answer is yes.</br>
+    The International Energy Agency outlines a scenario to stabilize the concentration of greenhouse gasses at 450 ppm (parts per million).</br>
+    This is the scenario that would prevent temperature increases above 2<sup>o</sup>C.</br>
+    In that scenario, the market share of oil should decline by 9 percentage points by 2040; and coal's should decline by 13 percentage points.</br>
+    In short: two fuels should lose 22 percentage points market share in 27 years time frame (combined with lower overall energy demand growth, of course).</br>
+    From a country-level perspective, that's hardly unprecedented.</br>
+    Combined with the idea that we can grow an economy without using significantly more energy, we have a strong case for change.</br>
     <a name = 'EnergyCosts'></a>
-    <p>The next question, of course, is cost: will a transition to a new energy system hurt consumers and cost jobs?</p>
+    The next question, of course, is cost: will a transition to a new energy system hurt consumers and cost jobs?</br>
+    </p>
 
     <!-- NEW SECTION -->
-    
     <hr><h2>Can we afford more expensive energy?</h2><hr>
-
-    <p>Energy prices are very serious business.</p>
-
-    <p>Daily, pundits will opine on what is happening to oil prices.</p>
     
-    <p>Few numbers seem to matter more for the American and world economy.</p>
-
-    <p>In part, this is a legacy from the 1970s.</p>
-
-    <p>According to the conventional wisdom, the twin oil shocks of the 1970s halted America's post-war growth miracle.</p>
-
-    <p>A miracle that was supposedly fueled by cheap energy.</p>
-
-    <p>Yet this pressumed link between energy prices and economic activity has always been suspect.</p>
-
+    <p>Energy prices are very serious business.</br>
+    Daily, pundits will opine on what is happening to oil prices.</br>
+    Few numbers seem to matter more for the American and world economy.</br>
+    In part, this is a legacy from the 1970s.</br>
+    According to the conventional wisdom, the twin oil shocks of the 1970s halted America's post-war growth miracle.</br>
+    A miracle that was supposedly fueled by cheap energy.</br>
+    Yet this pressumed link between energy prices and economic activity has always been suspect.</br>
+    
+    <!-- NEW SUB-SECTION -->
     <h3>Energy and household spending</h3> 
+    <p>In reality, energy costs are a minor part of total consumer spending.</br>
+    On average, American consumers have spent 5.7% of their disposable income on energy since 1929, with typical range of 4% to 7%.</br>
+    In fact, when oil prices spiked in 2008, households spent less on energy than they did in the 1950s and 1960s when energy was "cheap."</br> 
+    The whole "post-war, cheap energy" story looks really questionable when one examines the data closely.</br>
 
-    <p>In reality, energy costs are a minor part of total consumer spending.</p>
+    <h3>US: Personal consumption expenditures (as % of total)</h3>
+        <div class = 'graphic' id = 'linePCE'></div>
+        <div class = 'graphLegend'>
+            <ul>
+                <li style='color: #636363'>Total</li>
+                <li style='color: #2ca25f'>Gasoline</li>
+                <li style='color: #d73027'>Electricity</li>
+                <li style='color: #fc8d59'>Natural Gas</li>
+            </ul>
+        </div>
+    <p class = 'graphFootnote'>Source: Source: Bureau of Economic Analysis (Table 2.4.5)</p>
 
-    <p>On average, American consumers have spent 5.7% of their disposable income on energy since 1929, with typical range of 4% to 7%.</p>
+    <p>To put energy spending in context, consider the following.</br> 
+    In 2015, households spent as much on gambling and tobacco as they did to power, heat and cool their homes ($235 billion vs. $246 billion).</br>
+    Sending on gasoline and lubricants was equal to spending on telecom services and internet access ($283 billion vs. $268 billion).</br>
+    Spending on energy-heavy services was also small: $103 billion in 2015 for public transportation by land, air and sea.</br>
+    That's about as much as they spent on pets and pet products ($99 billion).</br>
+    No serious economist would go on TV to discuss the macroeconomic consequences of cellphone bills or cigarettes or slot machines or pet grooming.</br>
+    But when the experts pontificate about oil or gas prices, everyone listens intently as if these really matter.</br>
+    Of course, these numbers are low in part because energy prices have fallen.</br>
+    Households spent about $100 billion less on energy in 2015 relative to 2013.</br>
+    But remember: consumers spent over $12 trillion dollars in 2015.</br>
+    Between 2013 and 2015, their overall spending rose by over $900 billion; spending on health care alone rose $200 billion.</br>
+    So the drop in energy prices is welcome—who doesn't want an additional $100 billion?</br>
+    But the net effect is trivial in the grand scheme of things.</br> 
+    That is why economists can never find a "stimulus" from cheaper oil.</br>
+    It doesn't exist: energy is just a small fraction of total household spending.</br>
 
-    <p>In fact, when oil prices spiked in 2008, households spent less on energy than they did in the 1950s and 1960s when energy was "cheap."</p> 
-
-    <p>The whole "post-war, cheap energy" story looks really questionable when one examines the data closely.</p>
-
-    <div class = 'pceone' id = 'pce'>
-        <p class = 'graphtitle' align="center">US: Personal consumption expenditures (as % of total)</p>
-        <script src='js/lineChartPCE.js'></script> 
-    </div>
-    <div class = 'graphLegend'>
-        <svg width = '940', height = '25'>
-            <rect width = '15', height = '15', x = '340' y = '10' fill = '#91bfdb'></rect>
-            <text x = 360, y = 22>Total</text>
-            <rect width = '15', height = '15', x = '400' y = '10' fill = '#e41a1c'></rect>
-            <text x = 420, y = 22>Gasoline</text>
-            <rect width = '15', height = '15', x = '480' y = '10' fill = '#4daf4a'></rect>
-            <text x = 500, y = 22>Electricity</text>
-            <rect width = '15', height = '15', x = '570' y = '10' fill = '#377eb8'></rect>
-            <text x = 590, y = 22>Natural Gas</text>
-        </svg>
-        <p class = 'graphfootnote' align="center">Source: Source: Bureau of Economic Analysis (Table 2.4.5)</p>
-    </div>
-
-    <p>To put energy spending in context, consider the following.</p> 
-
-    <p>In 2015, households spent as much on gambling and tobacco as they did to power, heat and cool their homes ($235 billion vs. $246 billion).</p>
-
-    <p>Sending on gasoline and lubricants was equal to spending on telecom services and internet access ($283 billion vs. $268 billion).</p>
-
-    <p>Spending on energy-heavy services was also small: $103 billion in 2015 for public transportation by land, air and sea.</p>
-
-    <p>That's about as much as they spent on pets and pet products ($99 billion).</p>
-
-    <p>No serious economist would go on TV to discuss the macroeconomic consequences of cellphone bills or cigarettes or slot machines or pet grooming.</p>
-
-    <p>But when the experts pontificate about oil or gas prices, everyone listens intently as if these really matter.</p>
-
-    <p>Of course, these numbers are low in part because energy prices have fallen.</p>
-
-    <p>Households spent about $100 billion less on energy in 2015 relative to 2013.</p>
-
-    <p>But remember: consumers spent over $12 trillion dollars in 2015.</p>
-
-    <p>Between 2013 and 2015, their overall spending rose by over $900 billion; spending on health care alone rose $200 billion.</p>
-
-    <p>So the drop in energy prices is welcome—who doesn't want an additional $100 billion?</p>
-
-    <p>But the net effect is trivial in the grand scheme of things.</p> 
-
-    <p>That is why economists can never find a "stimulus" from cheaper oil.</p>
-
-    <p>It doesn't exist: energy is just a small fraction of total household spending.</p>
-
+    <!-- NEW SUB-SECTION -->
     <h3>Energy costs for business</h3> 
 
-    <p>The picture is similar when it comes to energy costs for businesses.</p> 
-
-    <p>In 2015, private businesses spent $484 billion on energy.</p> 
-
-    <p>That's about 2.4% of the $20 trillion they spent on all costs (energy, materials, services, and labor).</p> 
-
-    <p>Here too, costs have fallen in line with prices but the stimulus is small—$260 billion since 2008, or about two percentage points of total costs.</p> 
-
-    <p>For manufacturing industries, energy costs are even lower: 1.5% of all costs, relative to a peak of 2.7% in 2008 when oil prices were at all-time highs.</p> 
-
-    <p>Of course, for some industries, energy matters more, but rarely does it rise above 10%.</p>
-
-    <p>No wonder, then, that the expected "manufacturing renaissance" based on cheap energy never materialized.</p> 
-
-    <p>In fact, energy-intensive industries have performed poorly despite the supposed competitive advantage conferred to American firms by cheaper energy.</p>
-
-    <p>Oddly enough, many energy-intensive manufacturing sectors are still below their pre-crisis levels.</p> 
-
-    <p>By contrast, industries with low energy-intensity are doing better.</p>
-
-    <p>These results are hardly surprising. When the European Commission investigated the effects of energy costs on competitiveness, it found no impact.</p>
-
-    <p>In fact, there is little geographical overlap between cheap energy (e.g. the former Soviet Union, the Middle East) and advanced manufacturing (e.g. Japan, Korea, Taiwan, Germany).</p> 
-
-    <p>Even for simpler manufacturing, labor and other factors matter much more than energy costs.</p>
-
-    <p>Nor is there even a clear link between industrial production and industrial energy consumption.</p>
-
-    <p>In the United States, industrial energy consumption is roughly at the same level as in 1973, while industrial production has doubled.</p>
-
-    <p>In Japan, industrial production is up 67% but energy consumption in industry is down 16%.</p>
-
-    <p>In the United Kingdom, production is up 32% while energy use is down 64%; and so on.</p>
-
-    <p>The one sector where energy matters is transportation.</p> 
-
-    <p>In transportation, energy costs are much higher—as much as 36% of all costs (airlines in 2008), but typically around 10% to 30%.</p>
-
-    <p>Expensive energy can harm these industries—and, since they transport goods and people around, their performance affects everyone.</p>
-
-    <p>But it is not clear that more expensive energy has been that impactful.</p>
-
-    <p>If one measures corporate profits, transportation is all but struggling.</p>
-
-    <p>After the 9-11 shock, which really hit airlines, profits in the transportation industry have been booming.</p>
-
-    <p>In every year between 2005 and 2015, transportation generated more annual profits, in real terms, that at any year since 1948.</p>
-
-    <p>Employment shows a more mixed picture: it reached an all-time high in 2007, it fell as the economy slowed down and then jumped again in 2015.</p>
-
-    <p>But high energy prices also created new demand for transportation services—especially for railroads.</p>
-
-    <p>What about transportation costs and their impact on the economy?</p>
-
-    <p>Here too, we need to put numbers in context.</p> 
-
-    <p>It takes less than four cents to move a dollar of output on average.</p>
-
-    <p>Only one industry, wholesale and retail trade, spends much above that (10 cents for every dollar).</p>
-
-    <p>More importantly, the link between energy prices and transportation costs is not linear.</p>
-
-    <p>Between January 2004 and July 2008, oil prices roughly tripled, but transport costs rose by 47% for rail, and around 30% for air, water and road (truck) transport.</p>
-
-    <p>And these industries made other adjustments too: airlines, for instance, became more efficient—planes were over 84% full in 2014 versus 71% in 2000.</p>
-
-    <p>More importantly, it takes less and less energy to transport goods and people.</p>
-
-    <p>Fuel economy for all motor vehicles in the United States rose by 40% from 1973 and 1993, but then stalled as corporate average fuel economy (CAFE) standards were left unchanged.</p>
-
-    <p>Domestic airlines used 77% less energy per passenger mile in 2014 than they did in 1970.</p>
-
-    <p>Railroads used 55% less energy to transport freight in the same period.</p>
-
+    <p>
+    The picture is similar when it comes to energy costs for businesses.</br> 
+    In 2015, private businesses spent $484 billion on energy.</br> 
+    That's about 2.4% of the $20 trillion they spent on all costs (energy, materials, services, and labor).</br> 
+    Here too, costs have fallen in line with prices but the stimulus is small—$260 billion since 2008, or about two percentage points of total costs.</br> 
+    For manufacturing industries, energy costs are even lower: 1.5% of all costs, relative to a peak of 2.7% in 2008 when oil prices were at all-time highs.</br> 
+    Of course, for some industries, energy matters more, but rarely does it rise above 10%.</br>
+    No wonder, then, that the expected "manufacturing renaissance" based on cheap energy never materialized.</br> 
+    In fact, energy-intensive industries have performed poorly despite the supposed competitive advantage conferred to American firms by cheaper energy.</br>
+    Oddly enough, many energy-intensive manufacturing sectors are still below their pre-crisis levels.</br> 
+    By contrast, industries with low energy-intensity are doing better.</br>
+    These results are hardly surprising. When the European Commission investigated the effects of energy costs on competitiveness, it found no impact.</br>
+    In fact, there is little geographical overlap between cheap energy (e.g. the former Soviet Union, the Middle East) and advanced manufacturing (e.g. Japan, Korea, Taiwan, Germany).</br> 
+    Even for simpler manufacturing, labor and other factors matter much more than energy costs.</br>
+    Nor is there even a clear link between industrial production and industrial energy consumption.</br>
+    In the United States, industrial energy consumption is roughly at the same level as in 1973, while industrial production has doubled.</br>
+    In Japan, industrial production is up 67% but energy consumption in industry is down 16%.</br>
+    In the United Kingdom, production is up 32% while energy use is down 64%; and so on.</br>
+    The one sector where energy matters is transportation.</br> 
+    In transportation, energy costs are much higher—as much as 36% of all costs (airlines in 2008), but typically around 10% to 30%.</br>
+    Expensive energy can harm these industries—and, since they transport goods and people around, their performance affects everyone.</br>
+    But it is not clear that more expensive energy has been that impactful.</br>
+    If one measures corporate profits, transportation is all but struggling.</br>
+    After the 9-11 shock, which really hit airlines, profits in the transportation industry have been booming.</br>
+    In every year between 2005 and 2015, transportation generated more annual profits, in real terms, that at any year since 1948.</br>
+    Employment shows a more mixed picture: it reached an all-time high in 2007, it fell as the economy slowed down and then jumped again in 2015.</br>
+    But high energy prices also created new demand for transportation services—especially for railroads.</br>
+    What about transportation costs and their impact on the economy?</br>
+    Here too, we need to put numbers in context.</br> 
+    It takes less than four cents to move a dollar of output on average.</br>
+    Only one industry, wholesale and retail trade, spends much above that (10 cents for every dollar).</br>
+    More importantly, the link between energy prices and transportation costs is not linear.</br>
+    Between January 2004 and July 2008, oil prices roughly tripled, but transport costs rose by 47% for rail, and around 30% for air, water and road (truck) transport.</br>
+    And these industries made other adjustments too: airlines, for instance, became more efficient—planes were over 84% full in 2014 versus 71% in 2000.</br>
+    More importantly, it takes less and less energy to transport goods and people.</br>
+    Fuel economy for all motor vehicles in the United States rose by 40% from 1973 and 1993, but then stalled as corporate average fuel economy (CAFE) standards were left unchanged.</br>
+    Domestic airlines used 77% less energy per passenger mile in 2014 than they did in 1970.</br>
+    Railroads used 55% less energy to transport freight in the same period.</br>
     <a name = 'Conclusion'></a>
-    <p>These long-term gains have helped mute the impact of energy costs on businesses.</p>
+    These long-term gains have helped mute the impact of energy costs on businesses.</br>
+    </p>
 
     <!-- NEW SECTION -->    
     <hr><h2>Conclusion</h2><hr>
 
-    <p>The biggest obstacle to fighting climate change is some outdated ideas about energy.</p>
-
-    <p>That we can only save the environment by compromising economic growth.</p>
-
-    <p>That energy systems change slowly and our our actions will saddle us with costs but no benefits.</p>
-
-    <p>That if governments do anything that raises energy prices, they will severely harm consumers, cost jobs and shift industries overseas.</p> 
-
-    <p>If we can dispel those myths, we can accelerate our transition to low-carbon energy.</p> 
-
-    <p>Of course, this transition will not be easy or painless.</p>
-
-    <p>There are millions of people who depend, directly or indirectly, on jobs generated by fossil fuels.</p>
-
-    <p>Plenty of capital is deployed to these sectors as well.</p>
-
-    <p>A transition to a low-carbon economy needs to include a strategy for both people and capital, as well as measures to protect vulnerable households if energy prices do rise.</p>
-
-    <p>But this just means the strategy needs to be comprehensive and inclusive—not that we shouldn't try.</p>
-
-    <p>In fact, we know that action can yield results quickly: we have plenty of examples where countries have made big changes to their energy systems in fifteen to twenty years.</p>
-    
-    <p>The only barrier is a series of myths about energy and economics.</p> 
-
-    <p>Dispel these, and we can forge a new consensus to save the planet.</p>
-
+    <p>
+    The biggest obstacle to fighting climate change is some outdated ideas about energy.</br>
+    That we can only save the environment by compromising economic growth.</br>
+    That energy systems change slowly and our our actions will saddle us with costs but no benefits.</br>
+    That if governments do anything that raises energy prices, they will severely harm consumers, cost jobs and shift industries overseas.</br> 
+    If we can dispel those myths, we can accelerate our transition to low-carbon energy.</br> 
+    Of course, this transition will not be easy or painless.</br>
+    There are millions of people who depend, directly or indirectly, on jobs generated by fossil fuels.</br>
+    Plenty of capital is deployed to these sectors as well.</br>
+    A transition to a low-carbon economy needs to include a strategy for both people and capital, as well as measures to protect vulnerable households if energy prices do rise.</br>
+    But this just means the strategy needs to be comprehensive and inclusive—not that we shouldn't try.</br>
+    In fact, we know that action can yield results quickly: we have plenty of examples where countries have made big changes to their energy systems in fifteen to twenty years.</br>
+    The only barrier is a series of myths about energy and economics.</br> 
     <a name = 'Appendix'></a>
-    <p>These long-term gains have helped mute the impact of energy costs on businesses.</p>
+    Dispel these, and we can forge a new consensus to save the planet.</br>
+    </p>
 
     <hr><h2>Appendix</h2><hr>
-
-        <ul class="tab-list">
-        	<li class="active"><a class="tab-control" href="#tab-1"><h3>GDP, energy consumption, CO2 emissions</h3></a></li>
-        	<li><a class="tab-control" href="#tab-2"><h3>Energy consumption by fuel</h3></a></li></ul>
+    <ul class="tab-list">
+            <li class="active"><a class="tab-control" href="#tab-1"><h3>GDP, energy consumption, CO2 emissions</h3></a></li>
+            <li><a class="tab-control" href="#tab-2"><h3>Energy consumption by fuel</h3></a></li></ul>
 
         <div class = 'menu' align = 'center'>
         <select id="countrySelect" name="countrySelect">
@@ -781,77 +523,58 @@
             </div>
 
         <div class="tab-panel active" id="tab-1">
-        <p align="center">GDP, energy consumption, CO<sub>2</sub> emissions</p>
+        <h3>GDP, energy consumption, CO<sub>2</sub> emissions</h3>
         <div id = 'gdpTPESCO2'></div>
+        <script src='js/lineGDPENERGYCO2Select.js'> </script>
             <div class = 'graphLegend'>
-                <svg width = '940', height = '25'>
-                    <rect width = '15', height = '15', x = '240' y = '10' fill = '#e41a1c'></rect>
-                    <text x = 260, y = 22>Gross domestic product</text>
-                    <rect width = '15', height = '15', x = '415' y = '10' fill = '#4daf4a'></rect>
-                    <text x = 435, y = 22>Energy consumption</text>
-                    <rect width = '15', height = '15', x = '570' y = '10' fill = '#377eb8'></rect>
-                    <text x = 590, y = 22>CO2 emissions</text>
-                </svg>
-                <p align="center">Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
-             </div>
+            <ul>
+                <li style='color: #e41a1c'>Gross domestic product</li>
+                <li style='color: #4daf4a'>Energy use</li>
+                <li style='color: #377eb8'>CO2 emissions</li>
+            </ul>
+            </div>
+                <p class = 'graphFootnote'>Source: International Energy Agency, CO2 Emissions from Fuel Combustion (2016 Edition)</p>
         </div>
         
         <div class="tab-panel" id="tab-2">
-        <p align="center">Energy consumption by fuel</p>
+        <h3>Energy consumption by fuel</h3>
         <div id = 'fuelMix'></div>
              <div class = 'graphLegend'>
-                <svg width = '940', height = '25'>
-                    <rect width = '15', height = '15', x = '290' y = '10' fill = '#636363'></rect>
-                    <text x = 310, y = 22>Coal</text>
-                    <rect width = '15', height = '15', x = '350' y = '10' fill = '#2ca25f'></rect>
-                    <text x = 370, y = 22>Oil</text>
-                    <rect width = '15', height = '15', x = '405' y = '10' fill = '#d73027'></rect>
-                    <text x = 425, y = 22>Gas</text>
-                    <rect width = '15', height = '15', x = '460' y = '10' fill = '#fc8d59'></rect>
-                    <text x = 480, y = 22>Nuclear</text>
-                    <rect width = '15', height = '15', x = '535' y = '10' fill = '#91bfdb'></rect>
-                    <text x = 555, y = 22>Hydro</text>
-                    <rect width = '15', height = '15', x = '600' y = '10' fill = '#fee090'></rect>
-                    <text x = 620, y = 22>Renewables</text>
-                </svg>
-                
-                <p align="center">Source: BP Statistical Review of World Energy (June 2016)</p>
-            </div>
+            <ul>
+                <li style='color: #636363'>Coal</li>
+                <li style='color: #2ca25f'>Oil</li>
+                <li style='color: #d73027'>Gas</li>
+                <li style='color: #fc8d59'>Nuclear</li>
+                <li style='color: #91bfdb'>Hydro</li>
+                <li style='color: #fee090'>Renewables</li>
+            </ul>
+        </div>
+        <p class = 'graphFootnote'>Source: BP Statistical Review of World Energy (June 2016)</p>
         </div>
 
     <a name = 'Notes'></a>
     <hr><h2>Notes</h2><hr>
 
-    <p>The data on economics, total energy consumption and CO<sub>2</sub> emissions come from the International Energy Agency's <a href='http://www.iea.org/bookshop/729-CO2_Emissions_from_Fuel_Combustion' target = '_blank'>CO<sub>2</sub> Emissions from Fuel Combustion (2016 Edition)</a>.</p>
-
-    <p>GDP is measured in constant 2005 dollars ($2005), energy consumption in tons of oil equivalent (toe), and CO<sub>2</sub> emissions are from fuel combustion only and are measured in tons of CO<sub>2</sub> equivalent.</p>
-
-    <p>The data on energy transitions come from the <a href = 'http://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html' target='_blank'>BP Statistical Review of World Energy</a> (June 2016). 
-
-    <p>To access the code behind this website: <a href = 'https://github.com/nikostsafos/our-energy-challenge' target='_blank'>https://github.com/nikostsafos/our-energy-challenge</a>.</p>
-
-    <p>OECD: Australia, Austria, Belgium, Canada, Chile, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Israel, Italy, Japan, Korea, Luxembourg, Mexico, Netherlands, New Zealand, Norway, Poland, Portugal, Slovak Republic, Slovenia, Spain, Sweden, Switzerland, Turkey, United Kingdom and United States.</p>
-
-    <p>Middle East: Bahrain, Islamic Republic of Iran, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Saudi Arabia, Syrian Arab Republic, United Arab Emirates and Yemen.</p>
-
-    <p>Non-OECD Europe and Eurasia: Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, Former Yugoslav Republic of Macedonia, Georgia, Gibraltar, Kazakhstan, Kosovo, Kyrgyzstan, Latvia, Lithuania, Malta, Republic of Moldova, Montenegro, Romania, Russian Federation, Serbia, Tajikistan, Turkmenistan, Ukraine and Uzbekistan.</p>
-
-    <p>Asia: Bangladesh, Brunei Darussalam, Cambodia, People’s Republic of China, Hong Kong (China), India, Indonesia, Democratic People’s Republic of Korea, Malaysia, Mongolia, Myanmar, Nepal, Pakistan, Philippines, Singapore, Sri Lanka, Chinese Taipei, Thailand, Viet Nam and Other Asia.</p>
-
-    <p>Non-OECD Americas: Argentina, Bolivia, Brazil, Colombia, Costa Rica, Cuba, Curaçao, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Peru, Suriname, Trinidad and Tobago, Uruguay, Venezuela and Other Non-OECD Americas.</p>
-
-    <p>Africa: Algeria, Angola, Benin, Botswana, Cameroon, Congo, Côte d’Ivoire, Democratic Republic of Congo, Egypt, Eritrea, Ethiopia, Gabon, Ghana, Kenya, Libya, Mauritius, Morocco, Mozambique, Namibia, Niger, Nigeria, Senegal, South Africa, South Sudan, Sudan, Tanzania, Togo, Tunisia, Zambia, Zimbabwe and Other Africa.</p>
-
-    <p>Regions from <a href='http://www.iea.org/publications/freepublications/publication/key-world-energy-statistics.html' target = '_blank'>IEA, Key World Energy Statistics 2016</a>.</p> 
-
+    <p>The data on economics, total energy consumption and CO<sub>2</sub> emissions come from the International Energy Agency's <a href='http://www.iea.org/bookshop/729-CO2_Emissions_from_Fuel_Combustion' target = '_blank'>CO<sub>2</sub> Emissions from Fuel Combustion (2016 Edition)</a>.</br>
+    GDP is measured in constant 2005 dollars ($2005), energy consumption in tons of oil equivalent (toe), and CO<sub>2</sub> emissions are from fuel combustion only and are measured in tons of CO<sub>2</sub> equivalent.</br>
+    The data on energy transitions come from the <a href = 'http://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html' target='_blank'>BP Statistical Review of World Energy</a> (June 2016).</br>
+    To access the code behind this website: <a href = 'https://github.com/nikostsafos/our-energy-challenge' target='_blank'>https://github.com/nikostsafos/our-energy-challenge</a>.</br>
+    OECD: Australia, Austria, Belgium, Canada, Chile, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Israel, Italy, Japan, Korea, Luxembourg, Mexico, Netherlands, New Zealand, Norway, Poland, Portugal, Slovak Republic, Slovenia, Spain, Sweden, Switzerland, Turkey, United Kingdom and United States.</br>
+    Middle East: Bahrain, Islamic Republic of Iran, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Saudi Arabia, Syrian Arab Republic, United Arab Emirates and Yemen.</br>
+    Non-OECD Europe and Eurasia: Albania, Armenia, Azerbaijan, Belarus, Bosnia and Herzegovina, Bulgaria, Croatia, Cyprus, Former Yugoslav Republic of Macedonia, Georgia, Gibraltar, Kazakhstan, Kosovo, Kyrgyzstan, Latvia, Lithuania, Malta, Republic of Moldova, Montenegro, Romania, Russian Federation, Serbia, Tajikistan, Turkmenistan, Ukraine and Uzbekistan.</br>
+    Asia: Bangladesh, Brunei Darussalam, Cambodia, People’s Republic of China, Hong Kong (China), India, Indonesia, Democratic People’s Republic of Korea, Malaysia, Mongolia, Myanmar, Nepal, Pakistan, Philippines, Singapore, Sri Lanka, Chinese Taipei, Thailand, Viet Nam and Other Asia.</br>
+    Non-OECD Americas: Argentina, Bolivia, Brazil, Colombia, Costa Rica, Cuba, Curaçao, Dominican Republic, Ecuador, El Salvador, Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Peru, Suriname, Trinidad and Tobago, Uruguay, Venezuela and Other Non-OECD Americas.</br>
+    Africa: Algeria, Angola, Benin, Botswana, Cameroon, Congo, Côte d’Ivoire, Democratic Republic of Congo, Egypt, Eritrea, Ethiopia, Gabon, Ghana, Kenya, Libya, Mauritius, Morocco, Mozambique, Namibia, Niger, Nigeria, Senegal, South Africa, South Sudan, Sudan, Tanzania, Togo, Tunisia, Zambia, Zimbabwe and Other Africa.</br>
+    Regions from <a href='http://www.iea.org/publications/freepublications/publication/key-world-energy-statistics.html' target = '_blank'>IEA, Key World Energy Statistics 2016</a>.</br> 
     <script src = 'https://code.jquery.com/jquery-3.2.0.min.js'></script>
     <script src='js/tabs.js'> </script>
-    <script src='js/lineChartFuelMixSelect.js'> </script>
-    <script src='js/lineChartGDPCO2TPESSelect.js'> </script>
-
+    <script src='js/lineFuelMixCountrySelect.js'> </script>
+    <script src='js/lineFuelMixCountry.js'></script>
+    <script src='js/linePCE.js'></script>
     </div>
 
     <hr>
-    <h4><a href="https://twitter.com/ntsafos" class="twitter-follow-button" data-show-count="false">Follow @ntsafos</a>
+    <h3><a href="https://twitter.com/ntsafos" class="twitter-follow-button" data-show-count="false">Follow @ntsafos</a>
     <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></h4>
-  <body>
+  </body>
+

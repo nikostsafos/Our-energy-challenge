@@ -1,21 +1,49 @@
+(function() {
+
+var contentWidth = document.getElementById('content').clientWidth;
+
+var plotRow;
+  if (contentWidth >= 500) {plotRow = 2;} 
+  else { plotRow = 2; }
+
+var xWidth = contentWidth / plotRow;
+var yHeight = contentWidth / plotRow;
 
 var elem = document.getElementById('countrySelect'); // Create variable element that stores value from menu 
-if(elem){ elem.addEventListener("load", lineChartFuelMix('#fuelMix', elem.value, 2, .8), false)}; // on load, graph default value 
-if(elem){ elem.addEventListener("load", lineChartFuelMixPCT('#fuelMix', elem.value, 2, .8), false)}; // on load, graph default value 
+if(elem){ elem.addEventListener("load", lineFuelMix('#fuelMix', elem.value, xWidth, yHeight), false)}; // on load, graph default value 
+if(elem){ elem.addEventListener("load", lineFuelMixPCT('#fuelMix', elem.value, xWidth, yHeight), false)}; // on load, graph default value 
 if(elem){ elem.addEventListener("change", onSelectChange, false)}; // on change, run 'onSelectChange function' that graphs new country 
 
 function onSelectChange(){
   var value = this.value;
-  lineChartFuelMix('#fuelMix', value, 2, .8);
-  lineChartFuelMixPCT('#fuelMix', value, 2, .8);
+  lineFuelMix('#fuelMix', value, xWidth, yHeight);
+  lineFuelMixPCT('#fuelMix', value, xWidth, yHeight);
 }
 
-function lineChartFuelMix(id, country, plots, ratio) {
+function updateGraph() {
+  
+  var contentWidth = document.getElementById('content').clientWidth;
+  var plotRow;
+  if (contentWidth >= 500) {plotRow = 2;} 
+  else { plotRow = 2; }
+
+  var xWidth = contentWidth / plotRow;
+  var yHeight = contentWidth / plotRow;
+
+  var elem = document.getElementById('countrySelect'); // Create variable element that stores value from menu 
+  if(elem){ elem.addEventListener("load", lineFuelMix('#fuelMix', elem.value, xWidth, yHeight), false)}; // on load, graph default value 
+  if(elem){ elem.addEventListener("load", lineFuelMixPCT('#fuelMix', elem.value, xWidth, yHeight), false)}; // on load, graph default value 
+}
+
+window.onresize = updateGraph;
+
+
+function lineFuelMix(id, country, w, h) {
 
   // Set margin parameters 
-  var margin = {top: 20, right: 40, bottom: 20, left: 40},
-            width = 940/(plots) - margin.left - margin.right,
-            height = (width*ratio) - margin.top - margin.bottom;
+  var margin = {top: 40, right: 20, bottom: 20, left: 40},
+                width = w - margin.left - margin.right,
+                height = h - margin.top - margin.bottom;
 
   // x function map the circles along the x axis
   var x = d3.scaleLinear().range([0, width]);
@@ -113,7 +141,7 @@ function lineChartFuelMix(id, country, plots, ratio) {
 
     // Append x axis 
     svgLineChart.append("g")
-        .attr('class', 'x axis')
+        .attr('class', 'xaxis')
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
@@ -122,19 +150,18 @@ function lineChartFuelMix(id, country, plots, ratio) {
 
     // Append y axis
     svgLineChart.append("g")
-        .attr('class', 'y axis')
+        .attr('class', 'yaxis')
         .call(d3.axisLeft(y)
         .ticks(5));
 
     // Append text for y axis label
     svgLineChart.append('text')
-       .attr('transform', 'rotate(-90)')
-       //.attr('y', 6)
-       .attr('y', -43)
-       .attr('x', -height/2)
-       .attr('dy', '.71em')
-       .style('text-anchor', 'end')
-       .text('mmtoe');
+        .attr('transform', 'rotate(-90)')
+        .attr('y', -40)
+        .attr('x', -height/2)
+        .attr('dy', '.71em')
+        .style('text-anchor', 'middle')
+        .text('mmtoe');
     
     // Draw line 
     svgLineChart.append("path")
@@ -193,12 +220,12 @@ return this;
 //console.log(data);
 };
 
-function lineChartFuelMixPCT(id, country, plots, ratio) {
+function lineFuelMixPCT(id, country, w, h) {
 
   // Set margin parameters 
-  var margin = {top: 20, right: 40, bottom: 20, left: 40},
-            width = 940/(plots) - margin.left - margin.right,
-            height = (width*ratio) - margin.top - margin.bottom;
+  var margin = {top: 40, right: 20, bottom: 20, left: 40},
+                width = w - margin.left - margin.right,
+                height = h - margin.top - margin.bottom;
 
   // x function map the circles along the x axis
   var x = d3.scaleLinear().range([0, width]);
@@ -297,7 +324,7 @@ function lineChartFuelMixPCT(id, country, plots, ratio) {
 
     // Append x axis 
     svgLineChart.append("g")
-        .attr('class', 'x axis')
+        .attr('class', 'xaxis')
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
@@ -305,18 +332,18 @@ function lineChartFuelMixPCT(id, country, plots, ratio) {
 
     // Append y axis
     svgLineChart.append("g")
-        .attr('class', 'y axis')
+        .attr('class', 'yaxis')
         .call(d3.axisLeft(y)
         .ticks(5));
 
     // Append text for y axis label
     svgLineChart.append('text')
-       .attr('transform', 'rotate(-90)')
-       .attr('y', -40)
-       .attr('x', -height/2)
-       .attr('dy', '.71em')
-       .style('text-anchor', 'middle')
-       .text('% of total');
+         .attr('transform', 'rotate(-90)')
+         .attr('y', -40)
+         .attr('x', -height/2)
+         .attr('dy', '.71em')
+         .style('text-anchor', 'middle')
+         .text('% of total');
     
     // Draw line 
     svgLineChart.append("path")
@@ -374,4 +401,5 @@ function lineChartFuelMixPCT(id, country, plots, ratio) {
   });
 return this;
 //console.log(data);
-};
+}
+})();

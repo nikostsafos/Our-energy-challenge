@@ -1,65 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
+/********** Document wide **********/
+* {font-family: 'Source Sans Pro' , 'Arial'; }
 
-/********** Document wide settings **********/
-
-* {
-  font-family: 'Source Sans Pro' , 'Arial';  
-}
-
-body {
-  margin: 0px;
-}
-
-header {
-  /*z-index:-9999;*/
-/*   background-image: url('../img/earth.jpg'); */
-/*   background-color: cover; */
-/*   background-position: center; */
-/*   opacity: .9; */
-/*   margin-bottom: 10px; */
-/*   background-repeat: no-repeat; */
-  background-color: #000;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /*color: #e41a1c;*/
-  color: #fff;
-}
-
-header li{
-  text-align: right;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 0px;
-  margin-bottom: 10px;
-  max-width: 940px;
-  list-style: none;
-}
-
-header a {
-  color: #fff;
-  /*color: #e41a1c;*/
-  text-decoration: none;
-}
-
-/*.header{
-  height: 50px;
-  top: 0px;
-  border: 1px solid #377eb8;
-  background-color: #377eb8;
-  color: #fff;
-}*/
-
-/********** Navigation bar settings **********/
-
+/********** Navigation bar **********/
 nav {
-  /*display: none;*/
   z-index:1;
-  height: 30px;
+  height: 35px;
   top: 0px;
   left: 0px;
   background-color: #000;
@@ -72,24 +19,17 @@ nav ul {
     list-style-type: none;
     display: inline-block;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
-    align-items: center;
-    background-color: #000;
+    padding: 0;    
 }
 
 nav li {
     float: left;
-    align-items: center;
     border-right: 1px solid #bbb;
 }
 
 nav li a {
-    display: block;
-    align-items: center;
-    color: white;
-    text-align: center;
-    padding: 5px 10px;
+    color: white;    
+    padding: 10px 10px; 
     text-decoration: none;
 }
 
@@ -101,129 +41,109 @@ nav li:last-child {
     border-right: none;
 }
 
-.name {
-  margin-top: 250px;
-  font-weight:bold;
-  font-size:16pt;
-  padding-top:20px; }
-
-/*Content */
-.content {
-  font-size: 14px;
-  line-height: 1.6em;
-  display: table;
-  margin: 10px auto;
-  width: 100%;
-  height: 100%;
-  min-width: 480px;
-  max-width: 940px;
-  margin-bottom: 100px;
-}  
-
-h1 {
-  font-size: 20px;
+/********** Header (initial image) **********/
+header {
+  background-color: #000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   color: #fff;
-  /*color: #e41a1c;*/
+  margin: 0px auto;
+}
+
+header h1 {
   text-align: center;
-  height: 12%;
   margin-top: 0px;
   margin-bottom: 5px;
 }
 
-h2 {
-  font-size: 18px;
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 0px;
+header ul li{
+  text-align: left;
+  list-style: none;
+  align-items: center;
+  margin-bottom: 7px;
 }
 
-h3 {
-  font-size: 16px;
-  text-align: center;
- /* margin-bottom: -10px;*/
+header a {
+  color: #fff;
+  text-decoration: none;
 }
 
-h4 {
-  text-align: center;
+/********** Headings **********/
+h2, h3, h4 {
   font-size: 100%;
+  text-align: center;
+  margin: 0px 0px;
 }
 
-h5 {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: -10px;
+/********** Body **********/
+body {
+  margin: 0px;
+}
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+sub { 
+  top: 0.4em; 
 }
 
 p {
-  margin-left: 10px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin: 0px;
 }
 
-hr { 
-    display: block;
-    margin-top: 0.2em;
-    margin-bottom: 0.2em;
-    margin-left: auto;
-    margin-right: auto;
-    border-style: inset;
-    border-width: 1px;
+#content {
+  max-width: 940px;
+  width: 70%;
+  margin: 0 15% 0 15%;
+  line-height: 2em;
 }
 
-/*D3 settings*/
-.lineChart{
-  font-size: 12px;
-  line-height: 1.6em;
+/********** D3 **********/
+.xaxis, .yaxis, .label {
+  font-size: 90%;
 }
 
-#countrySet1, #countrySet2 {
-  font-size: 12px;
-  line-height: 1.6em;
+#tooltip {
+  font-size: 90%;
 }
 
-#countrySetFuelMix {
- font-size: 10px;
-  line-height: 1.6em; 
+.graphLegend ul {
+  margin: 0px;
+  display: inline-grid;
+  padding: 0px 10px 0px 0px;
+  list-style: none;
+  text-align: center;
+  align-items: center;
 }
 
-.x.axis, .y.axis {
-  font-size: 14px;
-  line-height: 1.6em;  
+.graphLegend li {
+  font-size: 90%;
+  padding: 0px 10px 0px 0px;
+  display: inline;
+  align-items: center;
+}
+
+.graphFootnote {
+  text-align: center;
+  font-size: 90%
 }
 
 .axis path,
 .axis line {
-  fill: none;
-  stroke: #000;
   shape-rendering: crispEdges;
-}
-
-.path {
-  fill: none;
-  stroke-width: 2;
 }
 
 .dot {
   stroke: #000;
 }
 
-.tooltip {
-  position: absolute;
-  width: 200px;
-  height: 28px;
-  pointer-events: none;
-}
-
 .boundary {
-  fill: #ccc;
   stroke: #888;
-  stroke-linejoin: round;
-}
-
-.graphtitle{
-  font-weight:bold;
-  font-size:110%;
-  text-align: center;
 }
 
 /********** PANELS **********/
@@ -253,4 +173,21 @@ hr {
  padding: 0px 15px 0px;
  display: block;
  list-style: none;
+}
+
+/********** Mobile compatibility **********/
+@media only screen and (max-width: 960px) {}
+
+@media only screen and (max-width: 500px) {
+
+  nav li { display: none; }
+
+  #content {
+    width: 94%;
+    margin: 0 3% 0 3%;
+    line-height: 2em;
+  }
+
+  .graphic { font-size: 80%; }
+  .graphLegend li { font-size: 80%:} 
 }

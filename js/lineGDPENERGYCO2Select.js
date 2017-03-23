@@ -1,20 +1,48 @@
+(function() {
+
+var contentWidth = document.getElementById('content').clientWidth;
+
+var plotRow;
+  if (contentWidth >= 500) {plotRow = 2;} 
+  else { plotRow = 2; }
+
+var xWidth = contentWidth / plotRow;
+var yHeight = contentWidth / plotRow;
+
 var elem = document.getElementById('countrySelect'); // Create variable element that stores value from menu 
-if(elem){ elem.addEventListener("load", lineChartGDPTPESCO2('#gdpTPESCO2', elem.value), false)}; // on load, graph default value 
-if(elem){ elem.addEventListener("load", lineChartGDPTPESCO2CAPITA('#gdpTPESCO2', elem.value), false)}; // on load, graph default value 
+if(elem){ elem.addEventListener("load", lineGDPTPESCO2('#gdpTPESCO2', elem.value, xWidth, yHeight), false)}; // on load, graph default value 
+if(elem){ elem.addEventListener("load", lineGDPTPESCO2CAPITA('#gdpTPESCO2', elem.value, xWidth, yHeight), false)}; // on load, graph default value 
 if(elem){ elem.addEventListener("change", onSelectChange, false)}; // on change, run 'onSelectChange function' that graphs new country 
 
 function onSelectChange(){
   var value = this.value;
-  lineChartGDPTPESCO2('#gdpTPESCO2', value);
-  lineChartGDPTPESCO2CAPITA('#gdpTPESCO2', value);
+  lineGDPTPESCO2('#gdpTPESCO2', value, xWidth, yHeight);
+  lineGDPTPESCO2CAPITA('#gdpTPESCO2', value, xWidth, yHeight);
 }
 
-function lineChartGDPTPESCO2(id, country) {
+function updateGraph() {
+  
+  var contentWidth = document.getElementById('content').clientWidth;
+  var plotRow;
+  if (contentWidth >= 500) {plotRow = 2;} 
+  else { plotRow = 2; }
+
+  var xWidth = contentWidth / plotRow;
+  var yHeight = contentWidth / plotRow;
+
+  var elem = document.getElementById('countrySelect'); // Create variable element that stores value from menu 
+  if(elem){ elem.addEventListener("load", lineGDPTPESCO2('#gdpTPESCO2', elem.value, xWidth, yHeight), false)}; // on load, graph default value 
+  if(elem){ elem.addEventListener("load", lineGDPTPESCO2CAPITA('#gdpTPESCO2', elem.value, xWidth, yHeight), false)}; // on load, graph default value 
+}
+
+window.onresize = updateGraph;
+
+function lineGDPTPESCO2(id, country, w, h) {
 
   // Set margin parameters 
-  var margin = {top: 20, right: 40, bottom: 20, left: 40},
-            width = 940/2 - margin.left - margin.right,
-            height = width*.8 - margin.top - margin.bottom;
+  var margin = {top: 40, right: 20, bottom: 20, left: 40},
+                width = w - margin.left - margin.right,
+                height = h - margin.top - margin.bottom;
 
   // x function map the circles along the x axis
   var x = d3.scaleLinear().range([0, width]);
@@ -94,7 +122,7 @@ function lineChartGDPTPESCO2(id, country) {
 
     // Append x axis 
     svgLineChart.append("g")
-        .attr('class', 'x axis')
+        .attr('class', 'xaxis')
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
@@ -102,21 +130,18 @@ function lineChartGDPTPESCO2(id, country) {
 
     // Append y axis
     svgLineChart.append("g")
-        .attr('class', 'y axis')
+        .attr('class', 'yaxis')
         .call(d3.axisLeft(y)
         .ticks(3));
 
     // Append text for y axis label
     svgLineChart.append('text')
-       .attr('class', 'y axis')
+       .attr('class', 'yaxis')
        .attr('transform', 'rotate(-90)')
        .attr('y', -40)
        .attr('x', -height/2)
        .attr('dy', '.71em')
        .style('text-anchor', 'end')
-       // .attr('y', 6)
-       // .attr('dy', '.71em')
-       // .style('text-anchor', 'end')
        .text('1990 = 100');
     
     // Draw line 
@@ -152,7 +177,7 @@ function lineChartGDPTPESCO2(id, country) {
 
     // text label for the x axis
     svgLineChart.append("text")
-        .attr('x', (width/2) - 20)
+        .attr('x', width/2)
         .attr("y", height - (height * 1.03))
         .style('text-anchor', 'middle')
         .text(country + ' (total)');
@@ -161,12 +186,12 @@ function lineChartGDPTPESCO2(id, country) {
     //console.log(data);
 };
 
-function lineChartGDPTPESCO2CAPITA(id, country) {
+  function lineGDPTPESCO2CAPITA(id, country, w, h) {
 
   // Set margin parameters 
-  var margin = {top: 20, right: 40, bottom: 20, left: 40},
-            width = 940/2 - margin.left - margin.right,
-            height = width*.8 - margin.top - margin.bottom;
+  var margin = {top: 40, right: 20, bottom: 20, left: 40},
+                width = w - margin.left - margin.right,
+                height = h - margin.top - margin.bottom;
 
   // x function map the circles along the x axis
   var x = d3.scaleLinear().range([0, width]);
@@ -245,7 +270,7 @@ function lineChartGDPTPESCO2CAPITA(id, country) {
 
     // Append x axis 
     svgLineChart.append("g")
-        .attr('class', 'x axis')
+        .attr('class', 'xaxis')
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
@@ -253,21 +278,18 @@ function lineChartGDPTPESCO2CAPITA(id, country) {
 
     // Append y axis
     svgLineChart.append("g")
-        .attr('class', 'y axis')
+        .attr('class', 'yaxis')
         .call(d3.axisLeft(y)
         .ticks(3));
 
     // Append text for y axis label
     svgLineChart.append('text')
-       .attr('class', 'y axis')
+       .attr('class', 'yaxis')
        .attr('transform', 'rotate(-90)')
        .attr('y', -40)
        .attr('x', -height/2)
        .attr('dy', '.71em')
        .style('text-anchor', 'end')
-       // .attr('y', 6)
-       // .attr('dy', '.71em')
-       // .style('text-anchor', 'end')
        .text('1990 = 100');
     
     // Draw line 
@@ -303,7 +325,7 @@ function lineChartGDPTPESCO2CAPITA(id, country) {
 
     // text label for the x axis
     svgLineChart.append("text")
-        .attr('x', (width/2) - 20)
+        .attr('x', width/2)
         .attr("y", height - (height * 1.03))
         .style('text-anchor', 'middle')
         .text(country + ' (per capita)');
@@ -311,3 +333,4 @@ function lineChartGDPTPESCO2CAPITA(id, country) {
     return this;
     //console.log(data);
 };
+})();

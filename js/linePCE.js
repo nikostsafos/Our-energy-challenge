@@ -1,20 +1,46 @@
-// var elem = document.getElementById('countrySelect'); // Create variable element that stores value from menu 
-// if(elem){ elem.addEventListener("load", lineChartGDPTPESCO2('#gdpTPESCO2', elem.value), false)}; // on load, graph default value 
-// if(elem){ elem.addEventListener("load", lineChartGDPTPESCO2CAPITA('#gdpTPESCO2', elem.value), false)}; // on load, graph default value 
-// if(elem){ elem.addEventListener("change", onSelectChange, false)}; // on change, run 'onSelectChange function' that graphs new country 
+(function() {
 
-// function onSelectChange(){
-//   var value = this.value;
-//   lineChartGDPTPESCO2('#gdpTPESCO2', value);
-//   lineChartGDPTPESCO2CAPITA('#gdpTPESCO2', value);
-// }
+var contentWidth = document.getElementById('content').clientWidth;
 
-(function () {
+var plotRow;
+  if (contentWidth >= 500) {plotRow = 2;} 
+  else { plotRow = 1; }
+
+var xWidth = contentWidth / plotRow;
+var yHeight = contentWidth / plotRow;
+
+graphPCETotal('#linePCE', xWidth, yHeight);
+graphPCESegment('#linePCE', xWidth, yHeight);
+
+
+function updateGraph() {
+  
+  d3.select('#linePCE').selectAll('*').remove();
+  
+  var contentWidth = document.getElementById('content').clientWidth;
+  
+  var plotRow;
+    if (contentWidth >= 700) {plotRow = 3;} 
+    else if (contentWidth >= 500) { plotRow = 2;} 
+    else { plotRow = 1; }
+
+  var xWidth = contentWidth / plotRow;
+  var yHeight = contentWidth / plotRow;
+
+  graphPCETotal('#linePCE', xWidth, yHeight);
+  graphPCESegment('#linePCE', xWidth, yHeight);
+
+}
+
+window.onresize = updateGraph;
+
+  // function lineFuelMix(pageid, country, plots, w, h) {
+function graphPCETotal (pageid, w, h) {
 
   // Set margin parameters 
-  var margin = {top: 20, right: 40, bottom: 20, left: 40},
-            width = 940/2 - margin.left - margin.right,
-            height = width*.8 - margin.top - margin.bottom;
+  var margin = {top: 40, right: 20, bottom: 20, left: 40},
+              width = w - margin.left - margin.right,
+              height = h - margin.top - margin.bottom;
 
   // x function map the circles along the x axis
   var x = d3.scaleLinear().range([0, width]);
@@ -45,8 +71,7 @@
         .y(function(d) { return y(d.Total); });
 
     // Create SVG item 
-    //d3.select(id).selectAll('*').remove();
-    var svgLineChart = d3.select('#pce')
+    var svgLineChart = d3.select(pageid)
                 .append('svg')
                 .attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.top + margin.bottom)
@@ -59,7 +84,7 @@
 
     // Append x axis 
     svgLineChart.append("g")
-        .attr('class', 'x axis')
+        .attr('class', 'xaxis')
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
@@ -67,21 +92,18 @@
 
     // Append y axis
     svgLineChart.append("g")
-        .attr('class', 'y axis')
+        .attr('class', 'yaxis')
         .call(d3.axisLeft(y)
         .ticks(5));
 
     // Append text for y axis label
     svgLineChart.append('text')
-       .attr('class', 'y axis')
+       .attr('class', 'yaxis')
        .attr('transform', 'rotate(-90)')
        .attr('y', -40)
        .attr('x', -height/2)
+       .style('text-anchor', 'middle')
        .attr('dy', '.71em')
-       .style('text-anchor', 'end')
-       // .attr('y', 6)
-       // .attr('dy', '.71em')
-       // .style('text-anchor', 'end')
        .text('percent of total');
     
     // Draw line 
@@ -94,19 +116,20 @@
 
     // text label for the x axis
     svgLineChart.append("text")
-        .attr('x', (width/2) - 20)
-        .attr("y", height - (height * 1.03))
+        .attr('x', width/2)
+        .attr("y", height - (height -10))
         .style('text-anchor', 'middle')
         .text('Total spending on energy');
     });
     return this;
-})();
+}
 
-(function () {
+function graphPCESegment (pageid, w, h) {
+
   // Set margin parameters 
-  var margin = {top: 20, right: 40, bottom: 20, left: 40},
-            width = 940/2 - margin.left - margin.right,
-            height = width*.8 - margin.top - margin.bottom;
+  var margin = {top: 40, right: 20, bottom: 20, left: 40},
+              width = w - margin.left - margin.right,
+              height = h - margin.top - margin.bottom;
 
   // x function map the circles along the x axis
   var x = d3.scaleLinear().range([0, width]);
@@ -147,8 +170,7 @@
         .y(function(d) { return y(d.Electricity); });
 
     // Create SVG item 
-    //d3.select(id).selectAll('*').remove();
-    var svgLineChart = d3.select('#pce')
+    var svgLineChart = d3.select(pageid)
                 .append('svg')
                 .attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.top + margin.bottom)
@@ -161,7 +183,7 @@
 
     // Append x axis 
     svgLineChart.append("g")
-        .attr('class', 'x axis')
+        .attr('class', 'xaxis')
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
@@ -169,21 +191,18 @@
 
     // Append y axis
     svgLineChart.append("g")
-        .attr('class', 'y axis')
+        .attr('class', 'yaxis')
         .call(d3.axisLeft(y)
         .ticks(5));
 
     // Append text for y axis label
     svgLineChart.append('text')
-       .attr('class', 'y axis')
+       .attr('class', 'yaxis')
        .attr('transform', 'rotate(-90)')
        .attr('y', -40)
        .attr('x', -height/2)
+       .style('text-anchor', 'middle')
        .attr('dy', '.71em')
-       .style('text-anchor', 'end')
-       // .attr('y', 6)
-       // .attr('dy', '.71em')
-       // .style('text-anchor', 'end')
        .text('percent of total');
     
     // Draw line 
@@ -212,10 +231,11 @@
 
     // text label for the x axis
     svgLineChart.append("text")
-        .attr('x', (width/2) - 20)
-        .attr("y", height - (height * 1.03))
+        .attr('x', width/2)
+        .attr("y", height - (height -10))
         .style('text-anchor', 'middle')
         .text('Spending by product');
              });
     //console.log(data);
+}
 })();

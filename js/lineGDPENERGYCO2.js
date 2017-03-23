@@ -1,9 +1,69 @@
-function plotCountrySingle(id, country) {
+(function() {
+
+var contentWidth = document.getElementById('content').clientWidth;
+
+var plotRow;
+  if (contentWidth >= 600) {plotRow = 4;} 
+  else { plotRow = 2; }
+
+var xWidth = contentWidth / plotRow;
+var yHeight = contentWidth / plotRow;
+
+// var xWidth = ((contentWidth > 500) ? contentWidth: contentWidth*2);
+// var yHeight = ((contentWidth > 500) ? xWidth/2 : xWidth);
+
+// lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Turkey', 4, xWidth, xWidth);
+// lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Australia', 4, xWidth, xWidth);
+// lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Russia', 4, xWidth, xWidth);
+// lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Germany', 4, xWidth, xWidth);
+// lineGDPENERGYCO2('#lineGDPENERGYCO2', 'United Kingdom', 4, xWidth, xWidth);
+// lineGDPENERGYCO2('#lineGDPENERGYCO2', 'China', 4, xWidth, xWidth);
+// lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Iran', 4, xWidth, xWidth);
+// lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Bangladesh', 4, xWidth, xWidth);
+
+
+lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Turkey', xWidth, xWidth);
+lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Australia', xWidth, xWidth);
+lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Russia', xWidth, xWidth);
+lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Germany', xWidth, xWidth);
+lineGDPENERGYCO2('#lineGDPENERGYCO2', 'United Kingdom', xWidth, xWidth);
+lineGDPENERGYCO2('#lineGDPENERGYCO2', 'China', xWidth, xWidth);
+lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Iran', xWidth, xWidth);
+lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Bangladesh', xWidth, xWidth);
+
+
+function updateGraph() {
+  var contentWidth = document.getElementById('content').clientWidth;
+
+  var plotRow;
+  if (contentWidth >= 600) {plotRow = 4;} 
+  else { plotRow = 2; }
+
+  var xWidth = contentWidth / plotRow;
+  var yHeight = contentWidth / plotRow;
+
+  d3.select('#lineGDPENERGYCO2').selectAll('*').remove();
+
+  lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Turkey', xWidth, xWidth);
+  lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Australia', xWidth, xWidth);
+  lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Russia', xWidth, xWidth);
+  lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Germany', xWidth, xWidth);
+  lineGDPENERGYCO2('#lineGDPENERGYCO2', 'United Kingdom', xWidth, xWidth);
+  lineGDPENERGYCO2('#lineGDPENERGYCO2', 'China', xWidth, xWidth);
+  lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Iran', xWidth, xWidth);
+  lineGDPENERGYCO2('#lineGDPENERGYCO2', 'Bangladesh', xWidth, xWidth);
+
+}
+
+window.onresize = updateGraph;
+
+
+function lineGDPENERGYCO2(pageid, country, w, h) {
 
   // Set margin parameters 
-  var margin = {top: 20, right: 40, bottom: 20, left: 40},
-            width = 940/4 - margin.left - margin.right,
-            height = 500/3 - margin.top - margin.bottom;
+  var margin = {top: 20, right: 20, bottom: 20, left: 40},
+            width = w - margin.left - margin.right,
+            height = h - margin.top - margin.bottom;
 
   // x function map the circles along the x axis
   var x = d3.scaleLinear().range([0, width]);
@@ -54,7 +114,7 @@ function plotCountrySingle(id, country) {
         .y(function(d) { return y(d.ENERGY); });
 
     // Create SVG item 
-    var svgLineChart = d3.select(id)
+    var svgLineChart = d3.select(pageid)
                 .append('svg')
                 .attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.top + margin.bottom)
@@ -75,21 +135,21 @@ function plotCountrySingle(id, country) {
 
     // Append x axis 
     svgLineChart.append("g")
-        .attr('class', 'x axis')
+        .attr('class', 'xaxis')
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
-        .tickValues([1971, 1980, 1990, 2000, 2014]));
+        .tickValues([1971, 1990, 2014]));
 
     // Append y axis
     svgLineChart.append("g")
-        .attr('class', 'y axis')
+        .attr('class', 'yaxis')
         .call(d3.axisLeft(y)
         .ticks(3));
 
     // Append text for y axis label
     svgLineChart.append('text')
-       .attr('class', 'y axis')
+       .attr('class', 'yaxis')
        .attr('transform', 'rotate(-90)')
        .attr('y', -40)
        .attr('x', -height/2)
@@ -132,11 +192,12 @@ function plotCountrySingle(id, country) {
 
     // text label for the x axis
     svgLineChart.append("text")
-        .attr('x', (width/2) - 20)
-        .attr("y", height - (height * .975))
+        .attr('x', width/2)
+        .attr("y", height - (height -10))
         .style('text-anchor', 'middle')
         .text(country);
              });
     return this;
     //console.log(data);
 };
+})();
