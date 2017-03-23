@@ -2,9 +2,9 @@
 
 var contentWidth = document.getElementById('content').clientWidth;
 
-var plotRow;
-  if (contentWidth >= 500) {plotRow = 2;} 
-  else { plotRow = 1; }
+var plotRow = 2;
+  // if (contentWidth >= 500) {plotRow = 2;} 
+  // else { plotRow = 1; }
 
 var xWidth = contentWidth / plotRow;
 var yHeight = contentWidth / plotRow;
@@ -19,10 +19,11 @@ function updateGraph() {
   
   var contentWidth = document.getElementById('content').clientWidth;
   
-  var plotRow;
-    if (contentWidth >= 700) {plotRow = 3;} 
-    else if (contentWidth >= 500) { plotRow = 2;} 
-    else { plotRow = 1; }
+  var plotRow = 2;
+  
+    // if (contentWidth >= 700) {plotRow = 3;} 
+    // else if (contentWidth >= 500) { plotRow = 2;} 
+    // else { plotRow = 1; }
 
   var xWidth = contentWidth / plotRow;
   var yHeight = contentWidth / plotRow;
