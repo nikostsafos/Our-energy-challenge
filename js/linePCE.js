@@ -38,7 +38,7 @@ window.onresize = updateGraph;
 function graphPCETotal (pageid, w, h) {
 
   // Set margin parameters 
-  var margin = {top: 40, right: 20, bottom: 20, left: 40},
+  var margin = {top: 20, right: 20, bottom: 20, left: 40},
               width = w - margin.left - margin.right,
               height = h - margin.top - margin.bottom;
 
@@ -127,7 +127,7 @@ function graphPCETotal (pageid, w, h) {
 function graphPCESegment (pageid, w, h) {
 
   // Set margin parameters 
-  var margin = {top: 40, right: 20, bottom: 20, left: 40},
+  var margin = {top: 20, right: 20, bottom: 20, left: 40},
               width = w - margin.left - margin.right,
               height = h - margin.top - margin.bottom;
 
