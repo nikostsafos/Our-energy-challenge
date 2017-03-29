@@ -145,8 +145,8 @@ function lineFuelMix(id, country, w, h) {
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
-        .tickValues([1965, 1975, 1985, 1995, 2005, 2015]));
-        //.tickValues([1965, 1990, 2015]));
+        // .tickValues([1965, 1975, 1985, 1995, 2005, 2015]));
+        .tickValues([1965, 1990, 2015]));
 
     // Append y axis
     svgLineChart.append("g")
@@ -328,7 +328,8 @@ function lineFuelMixPCT(id, country, w, h) {
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
-        .tickValues([1965, 1975, 1985, 1995, 2005, 2015]));
+        // .tickValues([1965, 1975, 1985, 1995, 2005, 2015]));
+        .tickValues([1965, 1990, 2015]));
 
     // Append y axis
     svgLineChart.append("g")

@@ -126,7 +126,9 @@ function lineGDPTPESCO2(id, country, w, h) {
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
-        .tickValues([1971, 1980, 1990, 2000, 2014]));
+        // .tickValues([1971, 1980, 1990, 2000, 2014]));
+        .tickValues([1971, 1990, 2014]));
+
 
     // Append y axis
     svgLineChart.append("g")
@@ -274,7 +276,8 @@ function lineGDPTPESCO2(id, country, w, h) {
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x)
         .tickFormat(d3.format(".0f"))
-        .tickValues([1971, 1980, 1990, 2000, 2014]));
+        // .tickValues([1971, 1980, 1990, 2000, 2014]));
+        .tickValues([1971, 1990, 2014]));
 
     // Append y axis
     svgLineChart.append("g")

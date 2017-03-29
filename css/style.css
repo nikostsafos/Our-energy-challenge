@@ -99,7 +99,7 @@ p {
 #content {
   max-width: 940px;
   width: 70%;
-  margin: 0 15% 0 15%;
+  margin: auto;
   line-height: 2em;
 }
 
