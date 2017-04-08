@@ -114,7 +114,6 @@ p {
 
 .graphLegend ul {
   margin: 0px;
-  display: inline-grid;
   padding: 0px 10px 0px 0px;
   list-style: none;
   text-align: center;
